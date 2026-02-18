@@ -1,9 +1,18 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { Copy, Check } from 'lucide-react';
 
 const Footer = () => {
+  const [copied, setCopied] = useState('');
+
+  const handleCopy = (text: string, label: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(label);
+    setTimeout(() => setCopied(''), 2000);
+  };
+
   return (
     <footer className="bg-secondary text-white py-20 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,9 +39,24 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-6 uppercase text-sm tracking-widest text-primary">Contact</h4>
             <ul className="space-y-4 text-gray-400">
-              <li>agwn@formulalabs.xyz</li>
-              <li>@ludium_agwn (Telegram)</li>
-              <li>(+82) 010-3544-6625</li>
+              <li>
+                <button onClick={() => handleCopy('contact@kbwa.events', 'email')} className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
+                  contact@kbwa.events
+                  {copied === 'email' ? <Check size={14} className="text-green-500" /> : <Copy size={14} className="opacity-40" />}
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCopy('@ludium_agwn', 'telegram')} className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
+                  @ludium_agwn (Telegram)
+                  {copied === 'telegram' ? <Check size={14} className="text-green-500" /> : <Copy size={14} className="opacity-40" />}
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCopy('010-3544-6625', 'phone')} className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
+                  (+82) 010-3544-6625
+                  {copied === 'phone' ? <Check size={14} className="text-green-500" /> : <Copy size={14} className="opacity-40" />}
+                </button>
+              </li>
               <li>Seoul, Korea</li>
             </ul>
           </div>
@@ -41,9 +65,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
           <p>© 2026 Korea Buidl Week Alliance. All rights reserved.</p>
           <div className="flex gap-8">
-            <Link href="#" className="hover:text-white">Twitter</Link>
-            <Link href="#" className="hover:text-white">Discord</Link>
-            <Link href="#" className="hover:text-white">Telegram</Link>
+            <a href="https://x.com/koreabuidlweek" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a>
+            <a href="https://bit.ly/KBW_Community" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Discord</a>
           </div>
         </div>
       </div>

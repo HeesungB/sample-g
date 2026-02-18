@@ -18,9 +18,9 @@ export default function PartnersPage() {
         <div className="bg-gray-50 rounded-[3rem] p-12 md:p-20 border border-gray-100">
           <h3 className="text-3xl md:text-4xl font-black mb-6">Become a Partner</h3>
           <p className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">Join the coalition of organizations shaping the future of Web3 in Asia.</p>
-          <button className="bg-primary text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-primary-600 transition-all shadow-lg shadow-primary/20 hover:-translate-y-1">
+          <a href="/contact#message" className="bg-primary text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-primary-600 transition-all shadow-lg shadow-primary/20 hover:-translate-y-1 inline-block">
             Inquiry for Partnership
-          </button>
+          </a>
         </div>
       </div>
       <Footer />

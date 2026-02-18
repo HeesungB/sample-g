@@ -1,36 +1,27 @@
 'use client';
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const EventsOverview = () => {
-  const [activeTab, setActiveTab] = useState('main');
-
-  interface EventItem {
-    date: string;
+  interface EventEntry {
     title: string;
-    time: string;
-    sub?: string;
+    org: string;
   }
 
-  const mainEvents: EventItem[] = [
-    { date: 'APR 13', title: 'Site Open', time: '-' },
-    { date: 'APR 14', title: 'BuidlHack 2026 Builder Day', time: '6pm - 10pm' },
-    { date: 'APR 15', title: 'AI / Infra Conn', time: 'All Day' },
-    { date: 'APR 16', title: 'BUIDL Asia Conference - Day 1', time: 'All Day' },
-    { date: 'APR 17', title: 'BUIDL Asia Conference - Day 2', time: 'All Day', sub: 'Rising Star, Clash of Universities, Startup World Cup Korea' },
-    { date: 'APR 18', title: 'BuidlHack 2026 - Final Pitch', time: 'All Day' },
-    { date: 'APR 19', title: 'Crypto Investment Show', time: 'All Day' },
-  ];
+  interface EventDay {
+    date: string;
+    events: EventEntry[];
+  }
 
-  const sideEvents: EventItem[] = [
-    { date: 'APR 14', title: 'Night in Seoul Networking', time: '8pm' },
-    { date: 'APR 15', title: 'Solana Ecosystem Meetup', time: '7pm' },
-    { date: 'APR 16', title: 'Web3 VC Dinner', time: '8pm' },
-    { date: 'APR 17', title: 'Developer After Party', time: '10pm' },
+  const mainEvents: EventDay[] = [
+    { date: 'APR 14', events: [{ title: 'BuidlHack 2026 Builder Day', org: 'KBWA' }] },
+    { date: 'APR 15', events: [{ title: 'AI / Infra Conn', org: 'Catalyze' }, { title: 'Vibe to Invest', org: 'ARK Point' }] },
+    { date: 'APR 16', events: [{ title: 'Buidl Asia Conference Day 1', org: 'KryptoPlanet' }] },
+    { date: 'APR 17', events: [{ title: 'Buidl Asia Conference Day 2', org: 'KryptoPlanet' }, { title: 'Crypto Investment Show Day 1', org: 'Xangle' }] },
+    { date: 'APR 18', events: [{ title: 'Crypto Investment Show Day 2', org: 'Xangle' }, { title: 'BuidlHack 2026 Final Pitch', org: 'KBWA' }] },
+    { date: 'APR 19', events: [{ title: 'Crypto Investment Show Day 3', org: 'Xangle' }] },
   ];
-
-  const currentEvents = activeTab === 'main' ? mainEvents : sideEvents;
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
@@ -51,48 +42,31 @@ const EventsOverview = () => {
             <p className="text-gray-500 max-w-lg">Explore the flagship conferences and community-led gatherings across Seoul.</p>
           </div>
           
-          <div className="flex bg-gray-50 p-1 rounded-full border border-gray-100 mx-auto md:mx-0">
-            <button 
-              onClick={() => setActiveTab('main')}
-              className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${activeTab === 'main' ? 'bg-primary text-white shadow-lg' : 'text-gray-500 hover:text-black'}`}
-            >
-              Main Events
-            </button>
-            <button 
-              onClick={() => setActiveTab('side')}
-              className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${activeTab === 'side' ? 'bg-primary text-white shadow-lg' : 'text-gray-500 hover:text-black'}`}
-            >
-              Side Events
-            </button>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-4">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-4"
-            >
-              {currentEvents.map((event, index) => (
-                <div key={index} className="group flex flex-col md:flex-row items-start md:items-center bg-gray-50/50 p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-primary/10">
-                  <div className="w-24 flex-shrink-0 mb-2 md:mb-0">
-                    <span className="text-primary font-black text-xl">{event.date}</span>
-                  </div>
-                  <div className="flex-grow">
-                    <h4 className="text-xl font-bold group-hover:text-primary transition-colors">{event.title}</h4>
-                    {event.sub && <p className="text-gray-500 text-sm mt-1 font-medium">{event.sub}</p>}
-                  </div>
-                  <div className="w-40 md:text-right text-gray-400 font-bold uppercase tracking-widest text-xs mt-2 md:mt-0">
-                    {event.time}
-                  </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="space-y-4"
+          >
+            {mainEvents.map((day, index) => (
+              <div key={index} className="group flex flex-col md:flex-row items-start bg-gray-50/50 p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-primary/10">
+                <div className="w-24 flex-shrink-0 mb-2 md:mb-0 md:pt-1">
+                  <span className="text-primary font-black text-xl">{day.date}</span>
                 </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+                <div className="flex-grow space-y-3">
+                  {day.events.map((event, i) => (
+                    <div key={i}>
+                      <h4 className="text-xl font-bold group-hover:text-primary transition-colors">{event.title}</h4>
+                      <p className="text-gray-500 text-sm mt-1 font-medium">{event.org}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

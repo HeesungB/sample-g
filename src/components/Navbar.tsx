@@ -21,6 +21,18 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // 모바일 메뉴 오픈 시 스크롤 방지
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   // 헤더가 투명해야 하는 조건: 메인 페이지이면서 아직 스크롤되지 않았을 때
   const isTransparent = isHomePage && !scrolled;
 
@@ -35,20 +47,20 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${
         isTransparent 
           ? 'bg-transparent py-6' 
           : 'bg-white/95 backdrop-blur-md py-3 shadow-lg border-b border-gray-100'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+      <div className="w-full mx-auto px-4 sm:px-6 xl:px-8 max-w-[1600px]">
+        <div className="flex justify-between items-center gap-4">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <img 
                 src="/logo-horizontal.png" 
                 alt="Korea Buidl Week 2026" 
-                className={`h-10 md:h-12 w-auto transition-all duration-500 ${
+                className={`h-7 sm:h-9 md:h-10 xl:h-11 w-auto max-w-[180px] sm:max-w-none transition-all duration-500 ${
                   isTransparent ? 'brightness-0 invert' : 'brightness-100'
                 }`} 
               />
@@ -56,37 +68,40 @@ const Navbar = () => {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden lg:block">
-            <div className="ml-10 flex items-center space-x-8">
+          <div className="hidden xl:block">
+            <div className="ml-4 flex items-center space-x-1 2xl:space-x-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`px-3 py-2 text-sm font-bold transition-colors duration-300 ${
+                  className={`px-2 2xl:px-3 py-2 text-[13px] 2xl:text-sm font-bold transition-colors duration-300 whitespace-nowrap ${
                     isTransparent ? 'text-white/80 hover:text-white' : 'text-gray-800 hover:text-primary'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Link
-                href="/contact"
-                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 shadow-md ${
-                  isTransparent 
-                    ? 'bg-white text-primary hover:bg-gray-100' 
-                    : 'bg-primary text-white hover:bg-primary-600'
-                }`}
-              >
-                Join Now
-              </Link>
+              <div className="ml-2">
+                <Link
+                  href="/contact"
+                  className={`px-5 py-2 rounded-full text-[13px] 2xl:text-sm font-bold transition-all duration-300 shadow-md inline-block whitespace-nowrap ${
+                    isTransparent 
+                      ? 'bg-white text-primary hover:bg-gray-100' 
+                      : 'bg-primary text-white hover:bg-primary-600'
+                  }`}
+                >
+                  Join Now
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden">
+          <div className="xl:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 transition-colors ${isTransparent ? 'text-white' : 'text-gray-800'}`}
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -96,8 +111,12 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white fixed inset-0 z-[60] flex flex-col items-center justify-center space-y-8 text-2xl animate-in fade-in duration-300">
-          <button onClick={() => setIsOpen(false)} className="absolute top-6 right-6 text-gray-800">
+        <div className="xl:hidden bg-white fixed inset-0 z-[60] flex flex-col items-center justify-center space-y-8 text-2xl animate-in fade-in duration-300 overflow-y-auto py-20">
+          <button 
+            onClick={() => setIsOpen(false)} 
+            className="absolute top-6 right-6 text-gray-800 p-2"
+            aria-label="Close menu"
+          >
             <X size={32} />
           </button>
           {navItems.map((item) => (
@@ -112,7 +131,7 @@ const Navbar = () => {
           ))}
           <Link
             href="/contact"
-            className="bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-primary-600 transition-colors"
+            className="bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-primary-600 transition-colors shadow-lg"
             onClick={() => setIsOpen(false)}
           >
             Join Now

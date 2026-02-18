@@ -40,7 +40,7 @@ const Hero = () => {
       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10 pointer-events-none"></div>
 
       {/* Content */}
-      <div className="relative z-[60] text-center px-4 max-w-5xl mx-auto pointer-events-auto">
+      <div className="relative z-20 text-center px-4 max-w-5xl mx-auto pointer-events-auto">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,14 +61,14 @@ const Hero = () => {
         </motion.p>
 
         <div 
-          className="flex flex-col sm:flex-row gap-4 justify-center relative z-[999] pointer-events-auto"
+          className="flex flex-col sm:flex-row gap-4 justify-center relative z-30 pointer-events-auto"
         >
           <a 
             href="/events"
             onClick={(e) => {
               console.log('See Events clicked');
             }}
-            className="inline-block bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-primary-600 transition-all transform hover:scale-105 text-center cursor-pointer relative z-[999]"
+            className="inline-block bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-primary-600 transition-all transform hover:scale-105 text-center cursor-pointer relative z-30"
           >
             See Events
           </a>
@@ -77,7 +77,7 @@ const Hero = () => {
             onClick={(e) => {
               console.log('Join Community clicked');
             }}
-            className="inline-block bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all transform hover:scale-105 text-center cursor-pointer relative z-[999]"
+            className="inline-block bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all transform hover:scale-105 text-center cursor-pointer relative z-30"
           >
             Join Community
           </a>

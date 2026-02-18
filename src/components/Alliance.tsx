@@ -5,11 +5,13 @@ import { motion } from 'framer-motion';
 
 const Alliance = () => {
   const members = [
-    { name: 'Scott', org: 'Solana Foundation', role: 'Head of Korea', color: 'bg-slate-100' },
-    { name: 'JAY', org: 'Catalyze', role: 'CEO & Co-founder', color: 'bg-slate-200' },
-    { name: 'JAY', org: 'Catalyze', role: 'CEO & Co-founder', color: 'bg-slate-100' },
-    { name: 'JAY', org: 'Catalyze', role: 'CEO & Co-founder', color: 'bg-slate-200' },
-    { name: 'JAY', org: 'Catalyze', role: 'CEO & Co-founder', color: 'bg-slate-100' },
+    { name: 'Erica', org: 'KryptoPlanet', role: 'CEO', color: 'bg-slate-100', image: '/members/erica.png' },
+    { name: 'Agwn', org: 'Ludium', role: 'CEO', color: 'bg-slate-200', image: '/members/agwn.png' },
+    { name: 'Tae Oh', org: 'ARK Point', role: 'CEO', color: 'bg-slate-100', image: '/members/taeoh.png' },
+    { name: 'Jay', org: 'Catalyze', role: 'CEO & Co-founder', color: 'bg-slate-200', image: '/members/jay.png' },
+    { name: 'Jason', org: 'DeSpread', role: 'CEO', color: 'bg-slate-100', image: '/members/jason.png' },
+    { name: 'Scott', org: 'Superteam / Solana Foundation', role: 'Head of Korea', color: 'bg-slate-200', image: '/members/scott.png' },
+    { name: 'Ji Yun', org: 'DSRV', role: 'CEO', color: 'bg-slate-100' },
   ];
 
   // 끊김 없는 루프를 위해 카드 리스트를 복제
@@ -48,8 +50,12 @@ const Alliance = () => {
               key={index}
               className="w-64 flex-shrink-0 bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 group"
             >
-              <div className={`h-64 ${member.color} flex items-center justify-center text-slate-400 text-6xl font-bold transition-colors group-hover:text-primary/40`}>
-                {member.name[0]}
+              <div className={`h-64 ${member.color} flex items-center justify-center overflow-hidden`}>
+                {member.image ? (
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="text-slate-400 text-6xl font-bold">{member.name[0]}</span>
+                )}
               </div>
               <div className="p-6 text-center">
                 <h4 className="text-xl font-bold mb-1 text-secondary">{member.name}</h4>

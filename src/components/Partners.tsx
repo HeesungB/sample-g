@@ -39,7 +39,6 @@ const Partners = () => {
 
         {categories.map((cat, catIdx) => (
           <div key={catIdx} className="mb-12 last:mb-0">
-            <h3 className="text-center text-[10px] font-bold text-gray-300 uppercase tracking-[0.5em] mb-8">{cat.name}</h3>
             
             <div className="relative flex overflow-hidden py-4">
               {/* Fade masks */}
