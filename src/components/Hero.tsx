@@ -72,11 +72,10 @@ const Hero = () => {
           >
             See Events
           </a>
-          <a 
-            href="/contact"
-            onClick={(e) => {
-              console.log('Join Community clicked');
-            }}
+          <a
+            href="https://bit.ly/KBW_Community"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all transform hover:scale-105 text-center cursor-pointer relative z-30"
           >
             Join Community
