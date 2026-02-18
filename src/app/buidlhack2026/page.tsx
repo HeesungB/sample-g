@@ -87,18 +87,14 @@ export default function BuidlHackPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1"
               >
                 <div className="text-xs font-bold text-gray-500 mb-2 uppercase tracking-tighter">{stat.label}</div>
                 <div className="text-5xl font-black text-primary mb-4">{stat.value}</div>
                 <p className="text-gray-600 text-sm leading-relaxed">{stat.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -114,17 +110,13 @@ export default function BuidlHackPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {prizes.map((prize, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1 text-center"
               >
                 <h4 className="text-lg font-bold text-secondary mb-4">{prize.sponsor}</h4>
                 <div className="text-4xl font-black text-primary">{prize.amount}</div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -139,12 +131,8 @@ export default function BuidlHackPage() {
           </div>
           <div className="space-y-4">
             {schedule.map((item, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
                 className="flex flex-col md:flex-row items-start bg-gray-50/50 p-8 rounded-[2rem] border border-gray-100 hover:bg-white hover:shadow-xl hover:border-primary/10 transition-all group"
               >
                 <div className="flex items-center gap-4 w-full md:w-44 flex-shrink-0 mb-3 md:mb-0">
@@ -158,7 +146,7 @@ export default function BuidlHackPage() {
                 <div className="md:w-32 md:text-right text-gray-400 font-bold uppercase tracking-widest text-xs mt-2 md:mt-0 md:pt-1">
                   {item.time}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -173,12 +161,8 @@ export default function BuidlHackPage() {
           </div>
           <div className="flex flex-wrap justify-center items-center gap-16 md:gap-24">
             {['/partner-01.svg', '/partner-02.svg', '/partner-03.svg'].map((logo, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="flex items-center justify-center"
               >
                 <img
@@ -186,7 +170,7 @@ export default function BuidlHackPage() {
                   alt="Partner Logo"
                   className={`w-auto object-contain brightness-0 ${logo.includes('03') ? 'h-6 md:h-10' : 'h-10 md:h-16'}`}
                 />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const EventsOverview = () => {
   interface EventEntry {
@@ -45,12 +42,7 @@ const EventsOverview = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="space-y-4"
-          >
+          <div className="space-y-4">
             {mainEvents.map((day, index) => (
               <div key={index} className="group flex flex-col md:flex-row items-start bg-gray-50/50 p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-primary/10">
                 <div className="w-24 flex-shrink-0 mb-2 md:mb-0 md:pt-1">
@@ -66,7 +58,7 @@ const EventsOverview = () => {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -46,11 +46,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${
-        isTransparent 
-          ? 'bg-transparent py-6' 
-          : 'bg-white/95 backdrop-blur-md py-3 shadow-lg border-b border-gray-100'
+    <nav
+      className={`fixed top-0 left-0 w-full z-[1000] ${
+        isOpen
+          ? 'bg-transparent py-3'
+          : isTransparent
+            ? 'bg-transparent py-6 transition-all duration-500'
+            : 'bg-white/95 backdrop-blur-md py-3 shadow-lg border-b border-gray-100 transition-all duration-500'
       }`}
     >
       <div className="w-full mx-auto px-4 sm:px-6 xl:px-8 max-w-[1600px]">
@@ -111,19 +113,19 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="xl:hidden bg-white fixed inset-0 z-[60] flex flex-col items-center justify-center space-y-8 text-2xl animate-in fade-in duration-300 overflow-y-auto py-20">
-          <button 
-            onClick={() => setIsOpen(false)} 
-            className="absolute top-6 right-6 text-gray-800 p-2"
+        <div className="xl:hidden bg-white fixed inset-0 z-[9999] flex flex-col items-center justify-center space-y-6 overflow-y-auto">
+          <button
+            onClick={() => setIsOpen(false)}
+            className="absolute top-5 right-5 text-gray-800 p-2"
             aria-label="Close menu"
           >
-            <X size={32} />
+            <X size={28} />
           </button>
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-gray-800 hover:text-primary transition-colors font-bold"
+              className="text-xl text-gray-800 hover:text-primary transition-colors font-bold"
               onClick={() => setIsOpen(false)}
             >
               {item.name}
@@ -131,7 +133,7 @@ const Navbar = () => {
           ))}
           <Link
             href="/contact"
-            className="bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-primary-600 transition-colors shadow-lg"
+            className="bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-600 transition-colors shadow-lg mt-4"
             onClick={() => setIsOpen(false)}
           >
             Join Now
