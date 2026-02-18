@@ -18,6 +18,7 @@ const JoinUs = () => {
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             className="text-primary font-bold tracking-widest uppercase mb-2 text-sm"
           >
             Get Involved
@@ -25,6 +26,7 @@ const JoinUs = () => {
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="text-4xl md:text-5xl lg:text-7xl font-black mb-6 tracking-tight"
           >
             Join the <span className="text-primary italic">Movement</span>
@@ -42,6 +44,7 @@ const JoinUs = () => {
               {...(option.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -4 }}
               className="bg-gray-50 border border-gray-100 p-8 rounded-3xl text-left hover:shadow-xl hover:border-primary/10 transition-all group block"

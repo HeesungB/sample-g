@@ -21,6 +21,7 @@ const Description = () => {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-primary font-bold tracking-[0.3em] uppercase mb-4 border-l-4 border-primary pl-4 text-sm">Hello World, from Korea</h2>
@@ -32,6 +33,7 @@ const Description = () => {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="space-y-6 text-gray-600 text-lg leading-relaxed font-normal"
           >

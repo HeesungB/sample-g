@@ -91,6 +91,7 @@ export default function BuidlHackPage() {
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1"
               >
@@ -117,6 +118,7 @@ export default function BuidlHackPage() {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1 text-center"
               >
@@ -141,6 +143,7 @@ export default function BuidlHackPage() {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
                 className="flex flex-col md:flex-row items-start bg-gray-50/50 p-8 rounded-[2rem] border border-gray-100 hover:bg-white hover:shadow-xl hover:border-primary/10 transition-all group"
               >
@@ -174,6 +177,7 @@ export default function BuidlHackPage() {
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="flex items-center justify-center"
               >

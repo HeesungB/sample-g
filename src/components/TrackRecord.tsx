@@ -18,6 +18,7 @@ const TrackRecord = () => {
           <motion.h2 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             className="text-primary font-bold tracking-widest uppercase mb-2 text-sm"
           >
             Track Record
@@ -25,6 +26,7 @@ const TrackRecord = () => {
           <motion.h3 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="text-4xl md:text-5xl font-black tracking-tight"
           >
             From Market Momentum <br className="hidden md:block" /> to <span className="text-primary">Builder Reality</span>
@@ -37,6 +39,7 @@ const TrackRecord = () => {
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1"
             >
