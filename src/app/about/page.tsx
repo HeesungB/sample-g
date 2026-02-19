@@ -8,7 +8,7 @@ const members = [
   { name: 'Jay', org: 'Catalyze', role: 'CEO & Co-founder', image: '/members/jay.png' },
   { name: 'Jason', org: 'DeSpread', role: 'CEO', image: '/members/jason.png' },
   { name: 'Scott', org: 'Superteam / Solana Foundation', role: 'Head of Korea', image: '/members/scott.png' },
-  { name: 'Ji Yun', org: 'DSRV', role: 'CEO' },
+  { name: 'Jiyun Kim', org: 'DSRV', role: 'CEO', image: '/members/jiyunkim.png' },
 ];
 
 export default function AboutPage() {

@@ -11,7 +11,7 @@ const Alliance = () => {
     { name: 'Jay', org: 'Catalyze', role: 'CEO & Co-founder', color: 'bg-slate-200', image: '/members/jay.png' },
     { name: 'Jason', org: 'DeSpread', role: 'CEO', color: 'bg-slate-100', image: '/members/jason.png' },
     { name: 'Scott', org: 'Superteam / Solana Foundation', role: 'Head of Korea', color: 'bg-slate-200', image: '/members/scott.png' },
-    { name: 'Ji Yun', org: 'DSRV', role: 'CEO', color: 'bg-slate-100' },
+    { name: 'Jiyun Kim', org: 'DSRV', role: 'CEO', color: 'bg-slate-100', image: '/members/jiyunkim.png' },
   ];
 
   // 끊김 없는 루프를 위해 카드 리스트를 복제
@@ -28,12 +28,12 @@ const Alliance = () => {
         </div>
       </div>
 
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-x-clip">
          <div className="absolute top-0 left-0 w-20 md:w-40 h-full bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
          <div className="absolute top-0 right-0 w-20 md:w-40 h-full bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
 
         <motion.div
-          className="flex gap-8"
+          className="flex gap-8 py-4"
           animate={{ x: ["0%", "-50%"] }}
           style={{ width: 'max-content' }}
           transition={{

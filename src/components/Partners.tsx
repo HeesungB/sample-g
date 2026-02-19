@@ -1,13 +1,12 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const Partners = () => {
   const categories = [
-    { name: 'Main Partners', duration: 15, reverse: false },
-    { name: 'Media Partners', duration: 22, reverse: true },
-    { name: 'Community Partners', duration: 18, reverse: false },
+    { name: 'Main Partners', duration: 30, reverse: false },
+    { name: 'Media Partners', duration: 40, reverse: true },
+    { name: 'Community Partners', duration: 35, reverse: false },
   ];
 
   // 로고 리스트
@@ -15,10 +14,8 @@ const Partners = () => {
     '/partner-01.svg',
     '/partner-02.svg',
     '/partner-03.svg',
+    '/partner-elixi.svg',
   ];
-
-  // 끊김 없는 루프를 위해 로고 배열을 충분히 반복 (Double for the 50% loop logic)
-  const duplicatedLogos = [...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos];
 
   return (
     <section className="py-24 bg-white overflow-hidden relative">
@@ -39,49 +36,37 @@ const Partners = () => {
 
         {categories.map((cat, catIdx) => (
           <div key={catIdx} className="mb-12 last:mb-0">
-            
             <div className="relative flex overflow-hidden py-4">
               {/* Fade masks */}
               <div className="absolute top-0 left-0 w-24 md:w-64 h-full bg-gradient-to-r from-white via-white/90 to-transparent z-10"></div>
               <div className="absolute top-0 right-0 w-24 md:w-64 h-full bg-gradient-to-l from-white via-white/90 to-transparent z-10"></div>
 
-              <motion.div
-                className="flex items-center gap-16 md:gap-32"
-                animate={{ x: cat.reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
-                transition={{
-                  x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: cat.duration,
-                    ease: "linear",
-                  },
+              <div
+                className="flex items-center will-change-transform"
+                style={{
+                  animation: `${cat.reverse ? 'scroll-right' : 'scroll-left'} ${cat.duration}s linear infinite`,
                 }}
-                style={{ width: 'max-content' }}
               >
-                {/* 
-                  로고들을 펼쳐서 나열. 
-                  동일한 세트를 두 번 이상 반복하고 -50%로 이동하면 
-                  첫 번째 세트의 끝과 두 번째 세트의 시작이 완벽히 맞물림.
-                */}
-                {duplicatedLogos.map((logo, i) => (
+                {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-center grayscale opacity-40 hover:opacity-100 transition-all shrink-0"
+                    className="flex items-center justify-center grayscale opacity-40 hover:opacity-100 transition-all shrink-0 mx-8 md:mx-16"
                   >
-                    <img 
-                      src={logo} 
-                      alt="Partner Logo" 
+                    <img
+                      src={logo}
+                      alt="Partner Logo"
                       className={`w-auto object-contain brightness-0 ${
-                        logo.includes('03') ? 'h-5 md:h-8' : 'h-8 md:h-14'
-                      }`} 
+                        logo.includes('03') ? 'h-5 md:h-8' : logo.includes('elixi') ? 'h-6 md:h-10' : 'h-8 md:h-14'
+                      }`}
                     />
                   </div>
                 ))}
-              </motion.div>
+              </div>
             </div>
           </div>
         ))}
       </div>
+
     </section>
   );
 };

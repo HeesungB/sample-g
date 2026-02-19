@@ -160,7 +160,7 @@ export default function BuidlHackPage() {
             <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">The organizations powering BuidlHack 2026.</p>
           </div>
           <div className="flex flex-wrap justify-center items-center gap-16 md:gap-24">
-            {['/partner-01.svg', '/partner-02.svg', '/partner-03.svg'].map((logo, i) => (
+            {['/partner-01.svg', '/partner-02.svg', '/partner-03.svg', '/partner-elixi-b.svg'].map((logo, i) => (
               <div
                 key={i}
                 className="flex items-center justify-center"
@@ -168,7 +168,7 @@ export default function BuidlHackPage() {
                 <img
                   src={logo}
                   alt="Partner Logo"
-                  className={`w-auto object-contain brightness-0 ${logo.includes('03') ? 'h-6 md:h-10' : 'h-10 md:h-16'}`}
+                  className={`w-auto object-contain brightness-0 ${logo.includes('03') || logo.includes('elixi') ? 'h-6 md:h-10' : 'h-10 md:h-16'}`}
                 />
               </div>
             ))}
