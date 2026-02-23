@@ -17,7 +17,8 @@ const stats = [
 const prizes = [
   { sponsor: 'BNB Chain', amount: '$5,000' },
   { sponsor: 'Status Network', amount: '$5,000' },
-  { sponsor: 'General Pool', amount: '$14,000' },
+  { sponsor: 'Near AI', amount: '$5,000' },
+  { sponsor: 'General Track', amount: '$6,000' },
 ];
 
 const schedule = [
@@ -105,10 +106,10 @@ export default function BuidlHackPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">Prize <span className="text-primary italic">Pool</span></h2>
-            <p className="text-4xl md:text-6xl lg:text-7xl font-black text-primary mt-4">$24,000</p>
+            <p className="text-4xl md:text-6xl lg:text-7xl font-black text-primary mt-4">$21,000</p>
             <p className="text-gray-500 text-lg font-medium mt-4">Available in prizes</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {prizes.map((prize, i) => (
               <div
                 key={i}
@@ -160,7 +161,7 @@ export default function BuidlHackPage() {
             <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">The organizations powering BuidlHack 2026.</p>
           </div>
           <div className="flex flex-wrap justify-center items-center gap-16 md:gap-24">
-            {['/partner-01.svg', '/partner-02.svg', '/partner-03.svg', '/partner-elixi-b.svg'].map((logo, i) => (
+            {['/partner-01.svg', '/partner-02.svg', '/partner-03.svg', '/partner-ludium.svg'].map((logo, i) => (
               <div
                 key={i}
                 className="flex items-center justify-center"
@@ -168,7 +169,7 @@ export default function BuidlHackPage() {
                 <img
                   src={logo}
                   alt="Partner Logo"
-                  className={`w-auto object-contain brightness-0 ${logo.includes('03') || logo.includes('elixi') ? 'h-6 md:h-10' : 'h-10 md:h-16'}`}
+                  className={`w-auto object-contain brightness-0 ${logo.includes('03') ? 'h-6 md:h-10' : 'h-10 md:h-16'}`}
                 />
               </div>
             ))}

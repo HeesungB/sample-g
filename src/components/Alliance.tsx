@@ -5,13 +5,14 @@ import { motion } from 'framer-motion';
 
 const Alliance = () => {
   const members = [
-    { name: 'Erica', org: 'KryptoPlanet', role: 'CEO', color: 'bg-slate-100', image: '/members/erica.png' },
+    { name: 'Erica', org: 'KryptoPlanet', role: 'CEO', color: 'bg-slate-100', image: '/members/erica.png', imageClass: 'scale-90 origin-bottom' },
     { name: 'Agwn', org: 'Ludium', role: 'CEO', color: 'bg-slate-200', image: '/members/agwn.png' },
     { name: 'Tae Oh', org: 'ARK Point', role: 'CEO', color: 'bg-slate-100', image: '/members/taeoh.png' },
     { name: 'Jay', org: 'Catalyze', role: 'CEO & Co-founder', color: 'bg-slate-200', image: '/members/jay.png' },
     { name: 'Jason', org: 'DeSpread', role: 'CEO', color: 'bg-slate-100', image: '/members/jason.png' },
     { name: 'Scott', org: 'Superteam / Solana Foundation', role: 'Head of Korea', color: 'bg-slate-200', image: '/members/scott.png' },
     { name: 'Jiyun Kim', org: 'DSRV', role: 'CEO', color: 'bg-slate-100', image: '/members/jiyunkim.png' },
+    { name: 'Youbin Kang', org: 'Nonce Classic', role: 'CEO', color: 'bg-slate-200', image: '/members/youbinkang.png' },
   ];
 
   // 끊김 없는 루프를 위해 카드 리스트를 복제
@@ -52,7 +53,7 @@ const Alliance = () => {
             >
               <div className={`h-64 ${member.color} flex items-center justify-center overflow-hidden`}>
                 {member.image ? (
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                  <img src={member.image} alt={member.name} className={`w-full h-full object-cover ${member.imageClass || ''}`} />
                 ) : (
                   <span className="text-slate-400 text-6xl font-bold">{member.name[0]}</span>
                 )}

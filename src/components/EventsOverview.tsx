@@ -8,6 +8,7 @@ const EventsOverview = () => {
     time?: string;
     location?: string;
     link?: string;
+    logos?: string[];
   }
 
   interface EventDay {
@@ -17,25 +18,25 @@ const EventsOverview = () => {
 
   const mainEvents: EventDay[] = [
     { date: 'APR 14', events: [
-      { title: 'BuidlHack 2026 Builder Day', org: 'KBWA', time: '6pm – 10pm', location: 'DSRV Office, Gangnam', link: 'https://www.buidlkorea.com/buidlhack2026' },
+      { title: 'BuidlHack 2026 Builder Day', org: 'KBWA', time: '18:00pm - 22:00pm', location: 'DSRV Office, Gangnam', link: 'https://www.buidlkorea.com/buidlhack2026', logos: ['/org-kbwa.svg'] },
     ] },
     { date: 'APR 15', events: [
-      { title: 'AI / Infra Conn', org: 'Catalyze Research', time: '6pm – 10pm', location: 'To be announced', link: 'https://luma.com/8nzr1zec' },
-      { title: 'Vibe to Invest', org: 'ARK Point', time: '6pm – 10pm', location: 'To be announced' },
+      { title: 'AI / Infra Con', org: 'Catalyze Research', time: '18:00pm - 22:00pm', location: 'To Be Announced', link: 'https://luma.com/8nzr1zec', logos: ['/org-catalyze.svg'] },
+      { title: 'Buidl Asia: Next Finance Summit', org: 'ARK Point', time: '11:00am - 17:30pm', location: 'Grandhill Convention, Gangnam', logos: ['/org-arkpoint.svg'] },
     ] },
     { date: 'APR 16', events: [
-      { title: 'Buidl Asia Conference Day 1', org: 'KryptoPlanet', location: 'Sofitel Ambassador, Seoul', link: 'https://buidl.asia' },
+      { title: 'Buidl Asia 2026 Day 1', org: 'KryptoPlanet', time: '10:00am - 18:00pm', location: 'Sofitel Ambassador, Jamsil', link: 'https://buidl.asia', logos: ['/org-kryptoplanet.svg'] },
     ] },
     { date: 'APR 17', events: [
-      { title: 'Buidl Asia Conference Day 2', org: 'KryptoPlanet', location: 'Sofitel Ambassador, Seoul', link: 'https://buidl.asia' },
-      { title: 'Crypto Investment Show Day 1', org: 'Hanhwa, Xangle', time: '10am – 6pm', location: 'SFactory, Seongsu' },
+      { title: 'Buidl Asia 2026 Day 2', org: 'KryptoPlanet', time: '10:00am - 18:00pm', location: 'Sofitel Ambassador, Jamsil', link: 'https://buidl.asia', logos: ['/org-kryptoplanet.svg'] },
+      { title: 'CIS 2026 - Institutional Day', org: 'Hanhwa, Xangle', time: '13:30pm - 21:00pm', location: 'The Plaza Seoul, Jung-Gu', logos: ['/org-hanwha.svg', '/org-xangle.png'] },
     ] },
     { date: 'APR 18', events: [
-      { title: 'Crypto Investment Show Day 2', org: 'Hanhwa, Xangle', time: '10am – 6pm', location: 'SFactory, Seongsu' },
-      { title: 'BuidlHack 2026 – Final Pitch', org: 'KBWA', time: '11am – 6pm', location: 'DSRV Office, Gangnam', link: 'https://www.buidlkorea.com/buidlhack2026' },
+      { title: 'CIS 2026 - Retail Festival', org: 'Hanhwa, Xangle', time: '10:00am - 18:00pm', location: 'S-Factory, Seong Su', logos: ['/org-hanwha.svg', '/org-xangle.png'] },
+      { title: 'BuidlHack 2026 – Final Pitch', org: 'KBWA', time: '11:00am - 18:00pm', location: 'DSRV Office, Gangnam', link: 'https://www.buidlkorea.com/buidlhack2026', logos: ['/org-kbwa.svg'] },
     ] },
     { date: 'APR 19', events: [
-      { title: 'Crypto Investment Show Day 3', org: 'Hanhwa, Xangle', time: '10am – 6pm', location: 'SFactory, Seongsu' },
+      { title: 'CIS 2026 - Retail Festival', org: 'Hanhwa, Xangle', time: '10:00am - 18:00pm', location: 'S-Factory, Seong Su', logos: ['/org-hanwha.svg', '/org-xangle.png'] },
     ] },
   ];
 
@@ -60,36 +61,69 @@ const EventsOverview = () => {
 
         </div>
 
-        <div className="grid grid-cols-1 gap-4">
-          <div className="space-y-4">
-            {mainEvents.map((day, index) => (
-              <div key={index} className="group flex flex-col md:flex-row items-start bg-gray-50/50 p-8 rounded-[2rem] hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-primary/10">
-                <div className="w-24 flex-shrink-0 mb-3 md:mb-0 md:pt-1">
-                  <span className="text-primary font-black text-xl">{day.date}</span>
-                </div>
-                <div className="flex-grow space-y-5">
-                  {day.events.map((event, i) => (
-                    <div key={i}>
-                      <div className="flex items-start gap-3">
-                        <div className="flex-grow">
-                          {event.link ? (
-                            <a href={event.link} target="_blank" rel="noopener noreferrer" className="text-xl font-bold group-hover:text-primary transition-colors hover:underline">{event.title}</a>
-                          ) : (
-                            <h4 className="text-xl font-bold group-hover:text-primary transition-colors">{event.title}</h4>
-                          )}
-                          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1.5 text-sm">
-                            <span className="text-gray-500 font-medium">{event.org}</span>
-                            {event.location && <span className="text-gray-400">{event.location}</span>}
-                            {event.time && <span className="text-gray-400">{event.time}</span>}
-                          </div>
-                        </div>
-                      </div>
+        <div className="rounded-2xl border border-gray-100 overflow-hidden divide-y divide-gray-100">
+          {mainEvents.map((day, dayIdx) => (
+            day.events.map((event, eventIdx) => (
+              <div
+                key={`${dayIdx}-${eventIdx}`}
+                className="flex flex-col md:flex-row md:items-center gap-4 px-5 py-5 hover:bg-gray-50/80 transition-colors"
+              >
+                {/* Date */}
+                <div className="md:w-40 shrink-0">
+                  {eventIdx === 0 ? (
+                    <div className="flex items-center gap-2.5">
+                      <span className="bg-primary text-white font-black text-sm px-3 py-1.5 rounded-xl">{day.date}</span>
+                      <span className="text-gray-400 text-xs font-semibold uppercase">
+                        {['MON','TUE','WED','THU','FRI','SAT'][dayIdx]}
+                      </span>
                     </div>
-                  ))}
+                  ) : (
+                    <div className="hidden md:block" />
+                  )}
                 </div>
+
+                {/* Event Info (title, org, time/location stacked) */}
+                <div className="flex-grow min-w-0">
+                  {event.link ? (
+                    <a href={event.link} target="_blank" rel="noopener noreferrer" className="text-base font-bold text-secondary hover:text-primary transition-colors hover:underline">{event.title}</a>
+                  ) : (
+                    <h4 className="text-base font-bold text-secondary">{event.title}</h4>
+                  )}
+                  <p className="text-primary text-sm font-semibold mt-0.5">{event.org}</p>
+                  {(event.time || event.location) && (
+                    <div className="flex items-center gap-3 text-sm text-gray-400 mt-1">
+                      {event.time && (
+                        <div className="flex items-center gap-1.5">
+                          <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
+                          <span>{event.time}</span>
+                        </div>
+                      )}
+                      {event.location && (
+                        <div className="flex items-center gap-1.5">
+                          <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                          <span>{event.location}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Logos */}
+                {event.logos && event.logos.length > 0 && (
+                  <div className="w-32 flex items-center justify-end gap-2 shrink-0">
+                    {event.logos.map((logo, li) => (
+                      <img
+                        key={li}
+                        src={logo}
+                        alt={event.org}
+                        className={`object-contain ${logo.includes('kbwa') ? 'h-10 max-w-[120px]' : 'h-7 max-w-[80px]'}`}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            ))
+          ))}
         </div>
       </div>
     </section>

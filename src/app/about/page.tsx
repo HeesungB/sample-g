@@ -2,13 +2,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const members = [
-  { name: 'Erica', org: 'KryptoPlanet', role: 'CEO', image: '/members/erica.png' },
+  { name: 'Erica', org: 'KryptoPlanet', role: 'CEO', image: '/members/erica.png', imageClass: 'scale-90 origin-bottom' },
   { name: 'Agwn', org: 'Ludium', role: 'CEO', image: '/members/agwn.png' },
   { name: 'Tae Oh', org: 'ARK Point', role: 'CEO', image: '/members/taeoh.png' },
   { name: 'Jay', org: 'Catalyze', role: 'CEO & Co-founder', image: '/members/jay.png' },
   { name: 'Jason', org: 'DeSpread', role: 'CEO', image: '/members/jason.png' },
   { name: 'Scott', org: 'Superteam / Solana Foundation', role: 'Head of Korea', image: '/members/scott.png' },
   { name: 'Jiyun Kim', org: 'DSRV', role: 'CEO', image: '/members/jiyunkim.png' },
+  { name: 'Youbin Kang', org: 'Nonce Classic', role: 'CEO', image: '/members/youbinkang.png' },
 ];
 
 export default function AboutPage() {
@@ -49,7 +50,7 @@ export default function AboutPage() {
               <div key={index} className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all">
                 <div className="aspect-square bg-slate-100 flex items-center justify-center overflow-hidden">
                   {member.image ? (
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
+                    <img src={member.image} alt={member.name} className={`w-full h-full object-cover object-top ${member.imageClass || ''}`} />
                   ) : (
                     <span className="text-slate-400 text-4xl md:text-5xl font-bold">{member.name[0]}</span>
                   )}
