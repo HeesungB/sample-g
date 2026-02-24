@@ -17,7 +17,7 @@ export default function Home() {
       <TrackRecord />
       <Alliance />
       <EventsOverview />
-      <Partners />
+      <Partners animated />
       <JoinUs />
       <Footer />
     </main>
