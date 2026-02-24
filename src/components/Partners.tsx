@@ -1,22 +1,12 @@
-'use client';
-
 import React from 'react';
 
 const Partners = () => {
-  const categories = [
-    { name: 'Main Partners', duration: 28.5, reverse: false },
-    { name: 'Media Partners', duration: 38, reverse: true },
-    { name: 'Community Partners', duration: 33.25, reverse: false },
-  ];
-
-  // 로고 리스트
   const partnerLogos = [
     '/partner-01.svg',
     '/partner-02.svg',
     '/partner-03.svg',
     '/partner-ludium.svg',
     '/partner-arkpoint.svg',
-    '/partner-hanwha.svg',
     '/partner-kryptoplanet.svg',
     '/partner-xangle.svg',
   ];
@@ -38,43 +28,23 @@ const Partners = () => {
           <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">The organizations making Korea Buidl Week possible.</p>
         </div>
 
-        {categories.map((cat, catIdx) => (
-          <div key={catIdx} className="mb-12 last:mb-0">
-            <div className="relative flex overflow-hidden py-4">
-              {/* Fade masks */}
-              <div className="absolute top-0 left-0 w-24 md:w-64 h-full bg-gradient-to-r from-white via-white/90 to-transparent z-10"></div>
-              <div className="absolute top-0 right-0 w-24 md:w-64 h-full bg-gradient-to-l from-white via-white/90 to-transparent z-10"></div>
-
-              {[0, 1].map((copy) => (
-                <div
-                  key={copy}
-                  className="flex shrink-0 items-center will-change-transform"
-                  style={{
-                    animation: `${cat.reverse ? 'scroll-right' : 'scroll-left'} ${cat.duration}s linear infinite`,
-                  }}
-                  aria-hidden={copy === 1 ? true : undefined}
-                >
-                  {partnerLogos.map((logo, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center justify-center grayscale opacity-40 hover:opacity-100 transition-all shrink-0 mx-8 md:mx-16"
-                    >
-                      <img
-                        src={logo}
-                        alt="Partner Logo"
-                        className={`w-auto object-contain brightness-0 ${
-                          logo.includes('03') ? 'h-5 md:h-8' : 'h-8 md:h-14'
-                        }`}
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center">
+          {partnerLogos.map((logo, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-center brightness-0 opacity-40 hover:opacity-100 transition-all duration-300"
+            >
+              <img
+                src={logo}
+                alt="Partner Logo"
+                className={`w-auto object-contain ${
+                  logo.includes('03') ? 'h-5 md:h-8' : 'h-8 md:h-14'
+                }`}
+              />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
     </section>
   );
 };
