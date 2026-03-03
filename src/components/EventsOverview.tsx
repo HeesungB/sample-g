@@ -74,7 +74,7 @@ const EventsOverview = () => {
                     <div className="flex items-center gap-2.5">
                       <span className="bg-primary text-white font-black text-sm px-3 py-1.5 rounded-xl">{day.date}</span>
                       <span className="text-gray-400 text-xs font-semibold uppercase">
-                        {['MON','TUE','WED','THU','FRI','SAT'][dayIdx]}
+                        {['TUE','WED','THU','FRI','SAT','SUN'][dayIdx]}
                       </span>
                     </div>
                   ) : (
@@ -110,7 +110,7 @@ const EventsOverview = () => {
 
                 {/* Logos */}
                 {event.logos && event.logos.length > 0 && (
-                  <div className="w-32 flex items-center justify-end gap-2 shrink-0">
+                  <div className="w-auto md:w-32 flex items-center justify-start md:justify-end gap-2 shrink-0">
                     {event.logos.map((logo, li) => (
                       <img
                         key={li}

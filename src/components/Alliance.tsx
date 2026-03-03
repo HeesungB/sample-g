@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const Alliance = () => {
   const members = [
     { name: 'Erica', org: 'KryptoPlanet', role: 'CEO', color: 'bg-slate-100', image: '/members/erica.png', imageClass: 'scale-90 origin-bottom' },
-    { name: 'Agwn', org: 'Ludium', role: 'CEO', color: 'bg-slate-200', image: '/members/agwn.png' },
+    { name: 'Agwn', org: 'Formula Labs', role: 'CSO', color: 'bg-slate-200', image: '/members/agwn.png' },
     { name: 'Tae Oh', org: 'ARK Point', role: 'CEO', color: 'bg-slate-100', image: '/members/taeoh.png' },
     { name: 'Jay', org: 'Catalyze', role: 'CEO & Co-founder', color: 'bg-slate-200', image: '/members/jay.png' },
     { name: 'Jason', org: 'DeSpread', role: 'CEO', color: 'bg-slate-100', image: '/members/jason.png' },

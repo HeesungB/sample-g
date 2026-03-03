@@ -3,20 +3,27 @@
 import React from 'react';
 
 const Partners = ({ animated = false }: { animated?: boolean }) => {
-  const partnerLogos = [
-    '/partner-01.svg',
-    '/partner-02.svg',
-    '/partner-03.svg',
-    '/partner-ludium.svg',
-    '/partner-arkpoint.svg',
-    '/partner-kryptoplanet.svg',
-    '/partner-xangle.svg',
+  const partnerLogos: { src: string; h: string }[] = [
+    { src: '/partner-01.svg', h: 'h-8 md:h-12' },
+    { src: '/partner-02.svg', h: 'h-8 md:h-12' },
+    { src: '/partner-03.svg', h: 'h-5 md:h-7' },
+    { src: '/partner-ludium.svg', h: 'h-8 md:h-12' },
+    { src: '/partner-arkpoint.svg', h: 'h-6 md:h-8' },
+    { src: '/partner-kryptoplanet.svg', h: 'h-8 md:h-12' },
+    { src: '/partner-xangle.svg', h: 'h-6 md:h-8' },
+    { src: '/partner-formula-labs.svg', h: 'h-6 md:h-8' },
+    { src: '/partner-catalyze.svg', h: 'h-8 md:h-12' },
+    { src: '/prize-bnb-chain.svg', h: 'h-6 md:h-9' },
+    { src: '/prize-status-network.png', h: 'h-6 md:h-9' },
+    { src: '/prize-near-ai.webp', h: 'h-3.5 md:h-6' },
+    { src: '/prize-ygg-play.svg', h: 'h-7 md:h-11' },
+    { src: '/prize-verse8.png', h: 'h-4 md:h-6' },
   ];
 
   const categories = [
-    { name: 'Main Partners', duration: 28.5, reverse: false },
-    { name: 'Media Partners', duration: 38, reverse: true },
-    { name: 'Community Partners', duration: 33.25, reverse: false },
+    { name: 'Main Partners', duration: 43, reverse: false },
+    { name: 'Media Partners', duration: 57, reverse: true },
+    { name: 'Community Partners', duration: 50, reverse: false },
   ];
 
   return (
@@ -58,11 +65,9 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
                         className="flex items-center justify-center brightness-0 opacity-40 hover:opacity-100 transition-all shrink-0 mx-8 md:mx-16"
                       >
                         <img
-                          src={logo}
+                          src={logo.src}
                           alt="Partner Logo"
-                          className={`w-auto object-contain ${
-                            logo.includes('03') ? 'h-5 md:h-8' : 'h-8 md:h-14'
-                          }`}
+                          className={`w-auto object-contain ${logo.h}`}
                         />
                       </div>
                     ))}
@@ -72,19 +77,26 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
             </div>
           ))
         ) : (
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-items-center">
-            {partnerLogos.map((logo, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-center brightness-0 opacity-40 hover:opacity-100 transition-all duration-300"
-              >
-                <img
-                  src={logo}
-                  alt="Partner Logo"
-                  className={`w-auto object-contain ${
-                    logo.includes('03') ? 'h-5 md:h-8' : 'h-8 md:h-14'
-                  }`}
-                />
+          <div className="space-y-10 md:space-y-12">
+            {[
+              partnerLogos.slice(0, 4),
+              partnerLogos.slice(4, 8),
+              partnerLogos.slice(8, 11),
+              partnerLogos.slice(11, 14),
+            ].map((row, ri) => (
+              <div key={ri} className="flex items-center justify-center gap-x-12 md:gap-x-20">
+                {row.map((logo, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-center brightness-0 opacity-40 hover:opacity-100 transition-all duration-300"
+                  >
+                    <img
+                      src={logo.src}
+                      alt="Partner Logo"
+                      className={`w-auto object-contain ${logo.h}`}
+                    />
+                  </div>
+                ))}
               </div>
             ))}
           </div>
