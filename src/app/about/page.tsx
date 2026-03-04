@@ -45,9 +45,9 @@ export default function AboutPage() {
               A coalition of Korea&apos;s leading Web3 organizations providing governance, ecosystem curation, and strategic direction.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
             {members.map((member, index) => (
-              <div key={index} className="bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all">
+              <div key={index} className="bg-gray-50 rounded-2xl md:rounded-3xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all">
                 <div className="aspect-square bg-slate-100 flex items-center justify-center overflow-hidden">
                   {member.image ? (
                     <img src={member.image} alt={member.name} className={`w-full h-full object-cover object-top ${member.imageClass || ''}`} />
@@ -55,10 +55,10 @@ export default function AboutPage() {
                     <span className="text-slate-400 text-4xl md:text-5xl font-bold">{member.name[0]}</span>
                   )}
                 </div>
-                <div className="p-5 text-center">
-                  <h4 className="text-lg font-bold mb-1 text-secondary">{member.name}</h4>
-                  <p className="text-primary text-sm font-bold mb-1">{member.org}</p>
-                  <p className="text-gray-400 text-xs font-medium">{member.role}</p>
+                <div className="p-3 md:p-5 text-center">
+                  <h4 className="text-base md:text-lg font-bold mb-1 text-secondary">{member.name}</h4>
+                  <p className="text-primary text-xs md:text-sm font-bold mb-1">{member.org}</p>
+                  <p className="text-gray-400 text-[10px] md:text-xs font-medium">{member.role}</p>
                 </div>
               </div>
             ))}

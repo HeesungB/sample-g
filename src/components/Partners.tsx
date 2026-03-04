@@ -14,7 +14,7 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
     { src: '/partner-formula-labs.svg', h: 'h-6 md:h-8' },
     { src: '/partner-catalyze.svg', h: 'h-8 md:h-12' },
     { src: '/prize-bnb-chain.svg', h: 'h-6 md:h-9' },
-    { src: '/prize-status-network.png', h: 'h-6 md:h-9' },
+    { src: '/prize-status-network.png', h: 'h-[26px] md:h-[40px]' },
     { src: '/prize-near-ai.webp', h: 'h-3.5 md:h-6' },
     { src: '/prize-ygg-play.svg', h: 'h-7 md:h-11' },
     { src: '/prize-verse8.png', h: 'h-4 md:h-6' },

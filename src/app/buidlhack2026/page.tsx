@@ -130,7 +130,7 @@ export default function BuidlHackPage() {
                 <p className="text-2xl md:text-4xl font-black text-primary">{prize.amount}</p>
                 {prize.logo && (
                   <div className={`flex items-center mt-4 opacity-30 ${prize.logo2 ? 'flex-col gap-3' : 'gap-2'}`}>
-                    <img src={prize.logo} alt="" className={`${prize.logo2 ? 'h-8' : prize.sponsor === 'Near AI' ? 'h-4' : prize.sponsor === 'BNB Chain' ? 'h-[21px]' : prize.sponsor === 'General Track' ? 'h-[23px]' : 'h-5'} w-auto brightness-0`} />
+                    <img src={prize.logo} alt="" className={`${prize.logo2 ? 'h-8' : prize.sponsor === 'Near AI' ? 'h-4' : prize.sponsor === 'BNB Chain' ? 'h-[21px]' : prize.sponsor === 'General Track' ? 'h-[23px]' : prize.sponsor === 'Status Network' ? 'h-[28px] md:h-[31px]' : 'h-5'} w-auto brightness-0`} />
                     {prize.logo2 && <img src={prize.logo2} alt="" className="h-4 w-auto brightness-0" />}
                   </div>
                 )}
@@ -177,10 +177,10 @@ export default function BuidlHackPage() {
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5 max-w-5xl mx-auto">
             {[
               { src: '/sponsor-bnb-chain-color.svg', name: 'BNB Chain', h: 'max-h-10 md:max-h-12' },
-              { src: '/sponsor-status-network-color.svg', name: 'Status Network', h: 'max-h-16 md:max-h-20' },
-              { src: '/sponsor-near-ai.webp', name: 'Near AI', h: 'max-h-4 md:max-h-5' },
-              { src: '/sponsor-verse8-color.svg', name: 'Verse8', h: 'max-h-4 md:max-h-5' },
-              { src: '/sponsor-ygg-play-color.svg', name: 'YGG Play', h: 'max-h-8 md:max-h-10' },
+              { src: '/sponsor-status-network-color.png', name: 'Status Network', h: 'max-h-[58px] md:max-h-[72px]' },
+              { src: '/sponsor-near-ai.webp', name: 'Near AI', h: 'max-h-[19px] md:max-h-5' },
+              { src: '/sponsor-verse8-color.svg', name: 'Verse8', h: 'max-h-[19px] md:max-h-5' },
+              { src: '/sponsor-ygg-play-color.svg', name: 'YGG Play', h: 'max-h-[38px] md:max-h-10' },
             ].map((logo, i) => (
               <div
                 key={i}
@@ -207,16 +207,16 @@ export default function BuidlHackPage() {
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">Our <span className="text-primary italic">Partners</span></h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">The organizations powering BuidlHack 2026.</p>
           </div>
-          <div className="flex items-center justify-center gap-x-10 md:gap-x-20">
+          <div className="grid grid-cols-2 md:flex md:items-center md:justify-center gap-8 md:gap-x-20 max-w-md md:max-w-none mx-auto">
             {[
-              { src: '/partner-01.svg', h: 'h-8 md:h-12' },
-              { src: '/partner-02.svg', h: 'h-8 md:h-12' },
-              { src: '/partner-03.svg', h: 'h-5 md:h-7' },
-              { src: '/partner-ludium.svg', h: 'h-8 md:h-12' },
+              { src: '/partner-01.svg', h: 'h-10 md:h-12', className: 'translate-x-2' },
+              { src: '/partner-02.svg', h: 'h-10 md:h-12' },
+              { src: '/partner-03.svg', h: 'h-6 md:h-7' },
+              { src: '/partner-ludium.svg', h: 'h-10 md:h-12' },
             ].map((logo, i) => (
               <div
                 key={i}
-                className="flex items-center justify-center brightness-0 opacity-40 hover:opacity-100 transition-all duration-300"
+                className={`flex items-center justify-center brightness-0 opacity-40 hover:opacity-100 transition-all duration-300 ${logo.className || ''}`}
               >
                 <img
                   src={logo.src}
