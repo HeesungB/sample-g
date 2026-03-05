@@ -2,7 +2,7 @@ import React from 'react';
 
 const JoinUs = () => {
   const options = [
-    { title: 'Register Event', sub: 'Host your own event during the week', href: '/events' },
+    { title: 'Register Event', sub: 'Host your own event during the week', href: 'https://se.ro/events/new?&parentEventSlug=korea-buidl-week-2026', external: true },
     { title: 'Sponsor Event', sub: 'Gain visibility at week-scale', href: '/contact#message' },
     { title: 'Become Partner', sub: 'Collaborate with the alliance', href: '/contact#message' },
     { title: 'Join Community', sub: 'Stay updated on Telegram', href: 'https://bit.ly/KBW_Community', external: true },

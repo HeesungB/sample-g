@@ -100,18 +100,19 @@ const EventsOverview = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6 text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 gap-6 text-center md:text-left">
           <div>
             <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tight">See <span className="text-primary italic">Events</span></h2>
             <p className="text-gray-500 max-w-lg">Explore the flagship conferences and community-led gatherings across Seoul.</p>
           </div>
-          {/* <button className="bg-primary text-white px-5 py-2.5 rounded-full font-bold shrink-0">
-            + New
-          </button> */}
+          <a href="https://se.ro/events/new?&parentEventSlug=korea-buidl-week-2026" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden border-2 border-primary text-primary px-5 py-2.5 rounded-full font-bold shrink-0 transition-all hover:shadow-lg hover:shadow-primary/25 hover:scale-105">
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent bg-[length:200%_100%] group-hover:animate-[shimmer_1.5s_ease-in-out_infinite]" />
+            <span className="relative">+ Add Side Event</span>
+          </a>
         </div>
 
         {/* Tabs */}
-        {/* <div className="flex gap-2 mb-6">
+        <div className="flex gap-2 mb-6">
           <button
             onClick={() => setActiveTab('main')}
             className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
@@ -122,7 +123,17 @@ const EventsOverview = () => {
           >
             Main Events
           </button>
-        </div> */}
+          <button
+            onClick={() => setActiveTab('side')}
+            className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
+              activeTab === 'side'
+                ? 'bg-primary text-white'
+                : 'border border-gray-200 text-gray-500 hover:border-gray-300'
+            }`}
+          >
+            Side Events
+          </button>
+        </div>
 
         {activeTab === 'main' ? (
           <div className="rounded-2xl border border-gray-100 overflow-hidden divide-y divide-gray-100">
