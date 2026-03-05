@@ -3,17 +3,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import { members as memberData } from '@/data/members';
+
 const Alliance = () => {
-  const members = [
-    { name: 'Erica', org: 'KryptoPlanet', role: 'CEO', color: 'bg-slate-100', image: '/members/erica.png', imageClass: 'scale-90 origin-bottom' },
-    { name: 'Agwn', org: 'Formula Labs', role: 'CSO', color: 'bg-slate-200', image: '/members/agwn.png' },
-    { name: 'Tae Oh', org: 'ARK Point', role: 'CEO', color: 'bg-slate-100', image: '/members/taeoh.png' },
-    { name: 'Jay', org: 'Catalyze', role: 'CEO & Co-founder', color: 'bg-slate-200', image: '/members/jay.png' },
-    { name: 'Jason', org: 'DeSpread', role: 'CEO', color: 'bg-slate-100', image: '/members/jason.png' },
-    { name: 'Scott', org: 'Superteam / Solana Foundation', role: 'Head of Korea', color: 'bg-slate-200', image: '/members/scott.png' },
-    { name: 'Jiyun Kim', org: 'DSRV', role: 'CEO', color: 'bg-slate-100', image: '/members/jiyunkim.png' },
-    { name: 'Youbin Kang', org: 'Nonce Classic', role: 'CEO', color: 'bg-slate-200', image: '/members/youbinkang.png' },
-  ];
+  const members = memberData.map((m, i) => ({
+    ...m,
+    color: i % 2 === 0 ? 'bg-slate-100' : 'bg-slate-200',
+  }));
 
   // 끊김 없는 루프를 위해 카드 리스트를 복제
   const duplicatedMembers = [...members, ...members];
