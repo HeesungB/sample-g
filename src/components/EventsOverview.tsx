@@ -1,37 +1,42 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+interface EventEntry {
+  title: string;
+  org: string;
+  description?: string;
+  time?: string;
+  location?: string;
+  link?: string;
+  logos?: string[];
+}
+
+interface EventDay {
+  date: string;
+  events: EventEntry[];
+}
+
+interface SideEvent {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  url: string;
+  organizers: { label: string }[];
+  location: { address: string; city: string; country: string };
+  startDate: string;
+  endDate: string;
+  eventType: string[];
+  topics: string[];
+}
+
+const formatDate = (iso: string) => {
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
+};
 
 const EventsOverview = () => {
-  interface EventEntry {
-    title: string;
-    org: string;
-    description?: string;
-    time?: string;
-    location?: string;
-    link?: string;
-    logos?: string[];
-  }
-
-  interface EventDay {
-    date: string;
-    events: EventEntry[];
-  }
-
-  interface SideEvent {
-    id: string;
-    name: string;
-    slug: string;
-    description: string;
-    url: string;
-    organizers: { label: string }[];
-    location: { address: string; city: string; country: string };
-    startDate: string;
-    endDate: string;
-    eventType: string[];
-    topics: string[];
-  }
-
   const mainEvents: EventDay[] = [
     { date: 'APR 14', events: [
       { title: 'BuidlHack 2026 Builder Day', org: 'KBWA', time: '18:00pm - 22:00pm', location: 'DSRV Office, Gangnam', link: 'https://www.buidlkorea.com/buidlhack2026', logos: ['/org-kbwa.svg'] },
@@ -56,36 +61,39 @@ const EventsOverview = () => {
     ] },
   ];
 
-  const sideEvents: SideEvent[] = [
-    {
-      id: '1',
-      name: 'Open Source AI Summit Lisbon',
-      slug: 'open-source-ai-summit-lisbon',
-      description: 'A gathering focused on open source AI tools, models, and infrastructure for builders and researchers.',
-      url: '',
-      organizers: [{ label: 'Open Source Collective' }],
-      location: { address: 'LX Factory', city: 'Lisbon', country: 'Portugal' },
-      startDate: 'JAN 9',
-      endDate: 'JAN 9',
-      eventType: ['Summit'],
-      topics: ['AI', 'Open Source'],
-    },
-    {
-      id: '2',
-      name: 'BUIDL AI Hackathon 2026',
-      slug: 'buidl-ai-hackathon-2026',
-      description: 'Three-day hackathon bringing together developers to build AI-powered Web3 applications.',
-      url: '',
-      organizers: [{ label: 'KBWA' }, { label: 'Ethereum Foundation' }],
-      location: { address: 'DSRV Office', city: 'Seoul', country: 'Korea' },
-      startDate: 'JAN 9',
-      endDate: 'JAN 11',
-      eventType: ['Hackathon'],
-      topics: ['AI', 'Web3', 'DeFi'],
-    },
-  ];
-
+  const [sideEvents, setSideEvents] = useState<SideEvent[]>([]);
+  const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState<'main' | 'side'>('main');
+
+  useEffect(() => {
+    const fetchSideEvents = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch('/api/side-events');
+        const json = await res.json();
+        if (json.success && json.data?.events) {
+          setSideEvents(json.data.events.map((e: Record<string, unknown>) => ({
+            id: e.id as string,
+            name: e.name as string,
+            slug: e.slug as string,
+            description: e.description as string,
+            url: e.url as string,
+            organizers: (e.organizers as { label: string }[]) || [],
+            location: e.location as { address: string; city: string; country: string },
+            startDate: formatDate(e.startDate as string),
+            endDate: formatDate(e.endDate as string),
+            eventType: (e.eventType as string[]) || [],
+            topics: (e.topics as string[]) || [],
+          })));
+        }
+      } catch (err) {
+        console.error('Failed to fetch side events:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSideEvents();
+  }, []);
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
@@ -202,53 +210,62 @@ const EventsOverview = () => {
           </div>
         ) : (
           <div className="rounded-2xl border border-gray-100 overflow-hidden divide-y divide-gray-100">
-            {sideEvents.map((event) => (
-              <div
-                key={event.id}
-                className="flex flex-col md:flex-row md:items-center gap-4 px-5 py-5 hover:bg-gray-50/80 transition-colors"
-              >
-                {/* Date */}
-                <div className="md:w-40 shrink-0">
-                  <div className="flex items-center gap-2.5">
-                    <span className="bg-primary text-white font-black text-sm px-3 py-1.5 rounded-xl">{event.startDate}</span>
-                    {event.endDate !== event.startDate && (
-                      <span className="text-gray-400 text-xs font-semibold">→ {event.endDate}</span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Event Info */}
-                <div className="flex-grow min-w-0">
-                  <h4 className="text-base font-bold text-secondary">{event.name}</h4>
-                  <p className="text-primary text-sm font-semibold mt-0.5">
-                    {event.organizers.map(o => o.label).join(', ')}
-                  </p>
-                  <div className="flex items-center gap-3 text-sm text-gray-400 mt-1">
-                    <div className="flex items-center gap-1.5">
-                      <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                      <span>{event.location.address}, {event.location.city}</span>
+            {loading ? (
+              <div className="px-5 py-10 text-center text-gray-400">Loading side events...</div>
+            ) : sideEvents.length === 0 ? (
+              <div className="px-5 py-10 text-center text-gray-400">No side events yet. Be the first to add one!</div>
+            ) : (
+              sideEvents.map((event) => (
+                <a
+                  key={event.id}
+                  href={event.url || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col md:flex-row md:items-center gap-4 px-5 py-5 hover:bg-gray-50/80 transition-colors block"
+                >
+                  {/* Date */}
+                  <div className="md:w-40 shrink-0">
+                    <div className="flex items-center gap-2.5">
+                      <span className="bg-primary text-white font-black text-sm px-3 py-1.5 rounded-xl">{event.startDate}</span>
+                      {event.endDate !== event.startDate && (
+                        <span className="text-gray-400 text-xs font-semibold">→ {event.endDate}</span>
+                      )}
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-1.5 mt-2">
-                    {[...event.topics, ...event.eventType].map((tag) => (
-                      <span
-                        key={tag}
-                        className="bg-primary/10 text-primary text-xs font-semibold rounded-full px-2.5 py-0.5"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Arrow */}
-                <div className="shrink-0 text-gray-300">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            ))}
+                  {/* Event Info */}
+                  <div className="flex-grow min-w-0">
+                    <h4 className="text-base font-bold text-secondary">{event.name}</h4>
+                    <p className="text-primary text-sm font-semibold mt-0.5">
+                      {event.organizers.map(o => o.label).join(', ')}
+                    </p>
+                    <div className="flex items-center gap-3 text-sm text-gray-400 mt-1">
+                      <div className="flex items-center gap-1.5">
+                        <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <span>{event.location.address}, {event.location.city}</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {[...event.topics, ...event.eventType].map((tag) => (
+                        <span
+                          key={tag}
+                          className="bg-primary/10 text-primary text-xs font-semibold rounded-full px-2.5 py-0.5"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="shrink-0 text-gray-300">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </a>
+              ))
+            )}
           </div>
         )}
       </div>
