@@ -2,10 +2,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (videoRef.current) {
@@ -41,36 +42,36 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-20 text-center px-4 max-w-5xl mx-auto pointer-events-auto">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight"
         >
-          Global Builder Gateway <br />
-          <span className="text-primary italic">to APAC</span>
+          {t('hero.title1')} <br />
+          <span className="text-primary italic">{t('hero.title2')}</span>
         </motion.h1>
-        
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl md:text-2xl text-gray-200 mb-10 font-medium"
         >
-          April 13-19th, 2026 | Seoul, South Korea
+          {t('hero.subtitle')}
         </motion.p>
 
-        <div 
+        <div
           className="flex flex-col sm:flex-row gap-4 justify-center relative z-30 pointer-events-auto"
         >
-          <a 
+          <a
             href="/events"
             onClick={(e) => {
               console.log('See Events clicked');
             }}
             className="inline-block bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-primary-600 transition-all transform hover:scale-105 text-center cursor-pointer relative z-30"
           >
-            See Events
+            {t('hero.seeEvents')}
           </a>
           <a
             href="https://bit.ly/KBW_Community"
@@ -78,13 +79,13 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="inline-block bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-full text-lg font-bold hover:bg-white/20 transition-all transform hover:scale-105 text-center cursor-pointer relative z-30"
           >
-            Join Community
+            {t('hero.joinCommunity')}
           </a>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 text-white opacity-50 pointer-events-none"

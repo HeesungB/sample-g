@@ -1,11 +1,16 @@
+'use client';
+
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const JoinUs = () => {
+  const { t } = useLanguage();
+
   const options = [
-    { title: 'Register Event', sub: 'Host your own event during the week', href: 'https://se.ro/events/new?&parentEventSlug=korea-buidl-week-2026', external: true },
-    { title: 'Sponsor Event', sub: 'Gain visibility at week-scale', href: '/contact#message' },
-    { title: 'Become Partner', sub: 'Collaborate with the alliance', href: '/contact#message' },
-    { title: 'Join Community', sub: 'Stay updated on Telegram', href: 'https://bit.ly/KBW_Community', external: true },
+    { title: t('join.registerTitle'), sub: t('join.registerSub'), href: 'https://se.ro/events/new?&parentEventSlug=korea-buidl-week-2026', external: true },
+    { title: t('join.sponsorTitle'), sub: t('join.sponsorSub'), href: '/contact#message' },
+    { title: t('join.partnerTitle'), sub: t('join.partnerSub'), href: '/contact#message' },
+    { title: t('join.communityTitle'), sub: t('join.communitySub'), href: 'https://bit.ly/KBW_Community', external: true },
   ];
 
   return (
@@ -13,13 +18,13 @@ const JoinUs = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-16 text-center">
           <h2 className="text-primary font-bold tracking-widest uppercase mb-2 text-sm">
-            Get Involved
+            {t('join.label')}
           </h2>
           <h3 className="text-4xl md:text-5xl lg:text-7xl font-black mb-6 tracking-tight">
-            Join the <span className="text-primary italic">Movement</span>
+            {t('join.heading1')} {t('join.heading1') && ' '}<span className="text-primary italic">{t('join.headingHighlight')}</span>
           </h3>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">
-            Whether you are a builder, sponsor, or community leader, there is a place for you in Seoul this April.
+            {t('join.description')}
           </p>
         </div>
 

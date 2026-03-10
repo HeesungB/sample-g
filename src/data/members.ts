@@ -7,4 +7,5 @@ export const members = [
   { name: 'Scott', org: 'Superteam / Solana Foundation', role: 'Head of Korea', image: '/members/scott.png' },
   { name: 'Jiyun Kim', org: 'DSRV', role: 'CEO', image: '/members/jiyunkim.png' },
   { name: 'Youbin Kang', org: 'Nonce Classic', role: 'CEO', image: '/members/youbinkang.png' },
+  { name: 'Minho Yoo', org: 'IoTrust', role: 'Co-founder', image: '/members/minhoyoo.png' },
 ];

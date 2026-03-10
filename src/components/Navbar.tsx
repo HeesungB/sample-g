@@ -4,12 +4,14 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  
+  const { lang, toggleLang, t } = useLanguage();
+
   // 메인 페이지가 아닌 경우 항상 'scrolled' 상태와 같은 디자인을 적용하기 위함
   const isHomePage = pathname === '/';
 
@@ -37,12 +39,12 @@ const Navbar = () => {
   const isTransparent = isHomePage && !scrolled;
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Events', href: '/events' },
-    { name: 'BuidlHack2026', href: '/buidlhack2026' },
-    { name: 'Partners', href: '/partners' },
-    { name: 'Contact', href: '/contact' },
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.events'), href: '/events' },
+    { name: t('nav.buidlhack'), href: '/buidlhack2026' },
+    { name: t('nav.partners'), href: '/partners' },
+    { name: t('nav.contact'), href: '/contact' },
   ];
 
   return (
@@ -59,50 +61,76 @@ const Navbar = () => {
         <div className="flex justify-between items-center gap-4">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <img 
-                src="/logo-horizontal.png" 
-                alt="Korea Buidl Week 2026" 
+              <img
+                src="/logo-horizontal.png"
+                alt="Korea Buidl Week 2026"
                 className={`h-7 sm:h-9 md:h-10 xl:h-11 w-auto max-w-[180px] sm:max-w-none transition-all duration-500 ${
                   isTransparent ? 'brightness-0 invert' : 'brightness-100'
-                }`} 
+                }`}
               />
             </Link>
           </div>
-          
+
           {/* Desktop Menu */}
           <div className="hidden xl:block">
             <div className="ml-4 flex items-center space-x-1 2xl:space-x-4">
               {navItems.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   href={item.href}
                   className={`px-2 2xl:px-3 py-2 text-[13px] 2xl:text-sm font-bold transition-colors duration-300 whitespace-nowrap ${
-                    isTransparent ? 'text-white/80 hover:text-white' : 'text-gray-800 hover:text-primary'
+                    pathname === item.href
+                      ? 'text-primary'
+                      : isTransparent ? 'text-white/80 hover:text-white' : 'text-gray-800 hover:text-primary'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
+              {/* Language Toggle */}
+              <button
+                onClick={toggleLang}
+                className={`w-9 h-9 flex items-center justify-center rounded-full text-lg transition-all duration-300 border cursor-pointer ${
+                  isTransparent
+                    ? 'border-white/30 hover:border-white/60'
+                    : 'border-gray-200 hover:border-primary/30'
+                }`}
+                aria-label={lang === 'en' ? 'Switch to Korean' : 'Switch to English'}
+              >
+                {lang === 'en' ? '🇰🇷' : '🇺🇸'}
+              </button>
               <div className="ml-2">
                 <Link
                   href="/contact"
                   className={`px-5 py-2 rounded-full text-[13px] 2xl:text-sm font-bold transition-all duration-300 shadow-md inline-block whitespace-nowrap ${
-                    isTransparent 
-                      ? 'bg-white text-primary hover:bg-gray-100' 
+                    isTransparent
+                      ? 'bg-white text-primary hover:bg-gray-100'
                       : 'bg-primary text-white hover:bg-primary-600'
                   }`}
                 >
-                  Join Now
+                  {t('nav.joinNow')}
                 </Link>
               </div>
             </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="xl:hidden">
+          <div className="xl:hidden flex items-center gap-2">
+            {/* Mobile Language Toggle */}
+            <button
+              onClick={toggleLang}
+              className={`w-9 h-9 flex items-center justify-center rounded-full text-lg transition-all duration-300 border cursor-pointer ${
+                isTransparent
+                  ? 'border-white/30'
+                  : 'border-gray-200'
+              }`}
+              aria-label={lang === 'en' ? 'Switch to Korean' : 'Switch to English'}
+            >
+              {lang === 'en' ? '🇰🇷' : '🇺🇸'}
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 transition-colors ${isTransparent ? 'text-white' : 'text-gray-800'}`}
+              className={`p-2 transition-colors cursor-pointer ${isTransparent ? 'text-white' : 'text-gray-800'}`}
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -116,16 +144,16 @@ const Navbar = () => {
         <div className="xl:hidden bg-white fixed inset-0 z-[9999] flex flex-col items-center justify-center space-y-6 overflow-y-auto">
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-5 right-5 text-gray-800 p-2"
+            className="absolute top-5 right-5 text-gray-800 p-2 cursor-pointer"
             aria-label="Close menu"
           >
             <X size={28} />
           </button>
           {navItems.map((item) => (
             <Link
-              key={item.name}
+              key={item.href}
               href={item.href}
-              className="text-xl text-gray-800 hover:text-primary transition-colors font-bold"
+              className={`text-xl transition-colors font-bold ${pathname === item.href ? 'text-primary' : 'text-gray-800 hover:text-primary'}`}
               onClick={() => setIsOpen(false)}
             >
               {item.name}
@@ -136,7 +164,7 @@ const Navbar = () => {
             className="bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-600 transition-colors shadow-lg mt-4"
             onClick={() => setIsOpen(false)}
           >
-            Join Now
+            {t('nav.joinNow')}
           </Link>
         </div>
       )}

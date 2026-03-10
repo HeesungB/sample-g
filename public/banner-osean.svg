@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <defs>
+    <linearGradient id="bg-osean" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050d1a;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#0a1628;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#071020;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="wave1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1565c0;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#1565c0;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#1565c0;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg-osean)" rx="24"/>
+  <!-- Wave decorations -->
+  <path d="M0,320 Q200,280 400,320 Q600,360 800,320" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.15"/>
+  <path d="M0,340 Q200,300 400,340 Q600,380 800,340" fill="none" stroke="#1976d2" stroke-width="0.8" opacity="0.1"/>
+  <path d="M0,360 Q200,320 400,360 Q600,400 800,360" fill="none" stroke="#2196f3" stroke-width="0.6" opacity="0.08"/>
+  <!-- Decorative circles -->
+  <circle cx="650" cy="120" r="160" fill="#1565c0" opacity="0.04"/>
+  <circle cx="150" cy="380" r="120" fill="#1565c0" opacity="0.03"/>
+  <!-- Grid dots -->
+  <circle cx="100" cy="80" r="1.5" fill="#42a5f5" opacity="0.2"/>
+  <circle cx="140" cy="80" r="1.5" fill="#42a5f5" opacity="0.2"/>
+  <circle cx="180" cy="80" r="1.5" fill="#42a5f5" opacity="0.2"/>
+  <circle cx="100" cy="120" r="1.5" fill="#42a5f5" opacity="0.2"/>
+  <circle cx="140" cy="120" r="1.5" fill="#42a5f5" opacity="0.2"/>
+  <circle cx="180" cy="120" r="1.5" fill="#42a5f5" opacity="0.2"/>
+  <!-- Logo -->
+  <text x="400" y="180" font-family="'Inter', 'Helvetica', sans-serif" font-size="20" fill="#42a5f5" text-anchor="middle" letter-spacing="6" opacity="0.7">ALL-IN-ONE MERCH &amp; EVENT PRODUCTION</text>
+  <text x="400" y="240" font-family="'Inter', 'Helvetica', sans-serif" font-size="64" fill="#ffffff" text-anchor="middle" letter-spacing="8" font-weight="800">O-SEAN</text>
+  <!-- Tagline -->
+  <text x="400" y="290" font-family="'Inter', 'Helvetica', sans-serif" font-size="13" fill="#64b5f6" text-anchor="middle" letter-spacing="3">MERCH &amp; EVENT PRODUCTION</text>
+  <!-- Bottom accent line -->
+  <rect x="340" y="320" width="120" height="2" rx="1" fill="#1565c0" opacity="0.4"/>
+  <!-- Features -->
+  <text x="200" y="400" font-family="'Inter', 'Helvetica', sans-serif" font-size="10" fill="#90caf9" text-anchor="middle" letter-spacing="1.5" opacity="0.6">CONTENT</text>
+  <text x="333" y="400" font-family="'Inter', 'Helvetica', sans-serif" font-size="10" fill="#90caf9" text-anchor="middle" letter-spacing="1.5" opacity="0.6">DESIGN</text>
+  <text x="466" y="400" font-family="'Inter', 'Helvetica', sans-serif" font-size="10" fill="#90caf9" text-anchor="middle" letter-spacing="1.5" opacity="0.6">PRODUCTION</text>
+  <text x="600" y="400" font-family="'Inter', 'Helvetica', sans-serif" font-size="10" fill="#90caf9" text-anchor="middle" letter-spacing="1.5" opacity="0.6">DELIVERY</text>
+  <circle cx="267" cy="397" r="1.5" fill="#42a5f5" opacity="0.3"/>
+  <circle cx="400" cy="397" r="1.5" fill="#42a5f5" opacity="0.3"/>
+  <circle cx="533" cy="397" r="1.5" fill="#42a5f5" opacity="0.3"/>
+</svg>

@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Copy, Check } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Footer = () => {
   const [copied, setCopied] = useState('');
+  const { t } = useLanguage();
 
   const handleCopy = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -22,22 +24,22 @@ const Footer = () => {
               <img src="/logo-horizontal.png" alt="Korea Buidl Week 2026" className="h-12 w-auto brightness-0 invert" />
             </div>
             <p className="text-gray-400 max-w-md leading-relaxed">
-              Asia&apos;s most influential builder-centric festival, concentrating Web3 momentum into one focused moment in Seoul.
+              {t('footer.description')}
             </p>
           </div>
-          
+
           <div>
-            <h4 className="font-bold mb-6 uppercase text-sm tracking-widest text-primary">Links</h4>
+            <h4 className="font-bold mb-6 uppercase text-sm tracking-widest text-primary">{t('footer.links')}</h4>
             <ul className="space-y-4 text-gray-400">
-              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link href="/events" className="hover:text-white transition-colors">Events</Link></li>
-              <li><Link href="/buidlhack2026" className="hover:text-white transition-colors">BuidlHack2026</Link></li>
+              <li><Link href="/" className="hover:text-white transition-colors">{t('nav.home')}</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">{t('nav.about')}</Link></li>
+              <li><Link href="/events" className="hover:text-white transition-colors">{t('nav.events')}</Link></li>
+              <li><Link href="/buidlhack2026" className="hover:text-white transition-colors">{t('nav.buidlhack')}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-6 uppercase text-sm tracking-widest text-primary">Contact</h4>
+            <h4 className="font-bold mb-6 uppercase text-sm tracking-widest text-primary">{t('footer.contact')}</h4>
             <ul className="space-y-4 text-gray-400">
               <li>
                 <button onClick={() => handleCopy('contact@kbwa.events', 'email')} className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
@@ -57,13 +59,13 @@ const Footer = () => {
                   {copied === 'phone' ? <Check size={14} className="text-green-500" /> : <Copy size={14} className="opacity-40" />}
                 </button>
               </li>
-              <li>Seoul, Korea</li>
+              <li>{t('footer.location')}</li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
-          <p>© 2026 Korea Buidl Week Alliance. All rights reserved.</p>
+          <p>{t('footer.copyright')}</p>
           <div className="flex gap-8">
             <a href="https://x.com/koreabuidlweek" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a>
             <a href="https://bit.ly/KBW_Community" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Discord</a>

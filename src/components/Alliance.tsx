@@ -2,10 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 import { members as memberData } from '@/data/members';
 
 const Alliance = () => {
+  const { t } = useLanguage();
+
   const members = memberData.map((m, i) => ({
     ...m,
     color: i % 2 === 0 ? 'bg-slate-100' : 'bg-slate-200',
@@ -18,9 +21,9 @@ const Alliance = () => {
     <section className="py-24 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">Meet the <span className="text-primary italic">Alliance</span></h2>
+          <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">{t('alliance.heading1')} {t('alliance.heading1') && ' '}<span className="text-primary italic">{t('alliance.headingHighlight')}</span></h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg font-medium">
-            A coalition of Korea&apos;s leading Web3 organizations providing governance, ecosystem curation, and strategic direction.
+            {t('alliance.description')}
           </p>
         </div>
       </div>

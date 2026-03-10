@@ -4,33 +4,36 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from '@/context/LanguageContext';
 
 const COMMUNITY_LINK = 'https://bit.ly/KBW_Community';
 
-const stats = [
-  { value: '2018', label: 'Since', desc: "Korea's longest-running builder-first technical conference" },
-  { value: '150+', label: 'Side Events', desc: "One of APAC's most active decentralized builder ecosystems" },
-  { value: '20K+', label: 'Attendees', desc: 'Week-long participants' },
-  { value: '100+', label: 'Organizations', desc: 'Leading foundations, researchers, infra teams, and investors' },
-];
-
-const prizes = [
-  { sponsor: 'BNB Chain', amount: '$5,000', logo: '/prize-bnb-chain.svg' },
-  { sponsor: 'Status Network', amount: '$5,000', logo: '/prize-status-network.png' },
-  { sponsor: 'Near AI', amount: '$5,000', logo: '/prize-near-ai.webp' },
-  { sponsor: 'YGG & Verse8', amount: '$5,000', logo: '/prize-ygg-play.svg', logo2: '/prize-verse8.png' },
-  { sponsor: 'General Track', amount: '$6,000', logo: '/logo-horizontal.png' },
-];
-
-const schedule = [
-  { date: 'MAR 11', day: 'Wed', title: 'Kickoff AMA', desc: 'Online AMA to introduce BuidlHack2026 Details' },
-  { date: 'MAR 12\n– APR 14', day: 'Thu–Tue', title: 'Sponsor Workshop', desc: "Online sponsor workshops to deep dive into the sponsor organization's where about" },
-  { date: 'APR 14', day: 'Tue', title: 'BuidlHack 2026 Builder Day', desc: 'Offline Builder Day — understand the stacks, exchange ideas, and meet teams' },
-  { date: 'APR 17', day: 'Fri', title: 'Submission Due Date', desc: 'All General/Sponsor Track project submission is due 23:59 KST through Ludium Portal' },
-  { date: 'APR 18', day: 'Sat', title: 'Final Pitch Day', desc: 'Present your project to judges and compete for the prize pool' },
-];
-
 export default function BuidlHackPage() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { value: '2018', label: t('buidlhack.sinceLbl'), desc: t('buidlhack.sinceDesc') },
+    { value: '150+', label: t('buidlhack.sideEventsLbl'), desc: t('buidlhack.sideEventsDesc') },
+    { value: '20K+', label: t('buidlhack.attendeesLbl'), desc: t('buidlhack.attendeesDesc') },
+    { value: '100+', label: t('buidlhack.orgsLbl'), desc: t('buidlhack.orgsDesc') },
+  ];
+
+  const prizes = [
+    { sponsor: 'BNB Chain', amount: '$5,000', logo: '/prize-bnb-chain.svg' },
+    { sponsor: 'Status Network', amount: '$5,000', logo: '/prize-status-network.png' },
+    { sponsor: 'Near AI', amount: '$5,000', logo: '/prize-near-ai.webp' },
+    { sponsor: 'YGG & Verse8', amount: '$5,000', logo: '/prize-ygg-play.svg', logo2: '/prize-verse8.png' },
+    { sponsor: 'General Track', amount: '$6,000', logo: '/logo-horizontal.png' },
+  ];
+
+  const schedule = [
+    { date: 'MAR 11', day: 'Wed', title: t('buidlhack.kickoffTitle'), desc: t('buidlhack.kickoffDesc') },
+    { date: 'MAR 12\n– APR 14', day: 'Thu–Tue', title: t('buidlhack.workshopTitle'), desc: t('buidlhack.workshopDesc') },
+    { date: 'APR 14', day: 'Tue', title: t('buidlhack.builderDayTitle'), desc: t('buidlhack.builderDayDesc') },
+    { date: 'APR 17', day: 'Fri', title: t('buidlhack.submissionTitle'), desc: t('buidlhack.submissionDesc') },
+    { date: 'APR 18', day: 'Sat', title: t('buidlhack.pitchTitle'), desc: t('buidlhack.pitchDesc') },
+  ];
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
@@ -51,11 +54,11 @@ export default function BuidlHackPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tight">
-              BuidlHack <span className="text-primary italic">2026</span>
+              {t('buidlhack.title1')} <span className="text-primary italic">{t('buidlhack.title2')}</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 font-medium mb-4">Mar 11th – Apr 18th, 2026 | Seoul, Korea</p>
+            <p className="text-xl md:text-2xl text-white/80 font-medium mb-4">{t('buidlhack.subtitle')}</p>
             <p className="text-white/60 max-w-2xl text-lg mb-10">
-              The flagship hackathon of Korea Buidl Week. Where builders come to ship.
+              {t('buidlhack.desc')}
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -64,7 +67,7 @@ export default function BuidlHackPage() {
                 rel="noopener noreferrer"
                 className="bg-primary text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-primary-600 transition-all shadow-lg shadow-primary/20 hover:-translate-y-1 inline-block"
               >
-                Join Community
+                {t('buidlhack.joinCommunity')}
               </a>
               <a
                 href="https://www.ludium.world/programs/hackathon/f8a6bb25-671a-44c3-a8c3-293a5d048e51"
@@ -72,7 +75,7 @@ export default function BuidlHackPage() {
                 rel="noopener noreferrer"
                 className="bg-white/10 backdrop-blur-sm text-white border border-white/30 px-8 md:px-10 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white/20 transition-all hover:-translate-y-1 inline-block"
               >
-                Apply to Hack
+                {t('buidlhack.applyToHack')}
               </a>
             </div>
           </motion.div>
@@ -94,8 +97,8 @@ export default function BuidlHackPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">Track <span className="text-primary italic">Record</span></h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">Korea Buidl Week has been at the forefront of builder culture in APAC.</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">{t('buidlhack.trackRecordTitle1')} <span className="text-primary italic">{t('buidlhack.trackRecordHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">{t('buidlhack.trackRecordDesc')}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat, i) => (
@@ -116,9 +119,9 @@ export default function BuidlHackPage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">Prize <span className="text-primary italic">Pool</span></h2>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">{t('buidlhack.prizeTitle1')} <span className="text-primary italic">{t('buidlhack.prizeHighlight')}</span></h2>
             <p className="text-4xl md:text-6xl lg:text-7xl font-black text-primary mt-4">$26,000</p>
-            <p className="text-gray-500 text-lg font-medium mt-4">Available in prizes</p>
+            <p className="text-gray-500 text-lg font-medium mt-4">{t('buidlhack.prizeAvailable')}</p>
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-5 max-w-5xl mx-auto">
             {prizes.map((prize, i) => (
@@ -144,8 +147,8 @@ export default function BuidlHackPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">The <span className="text-primary italic">Schedule</span></h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">Five days of building, learning, and competing.</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">{t('buidlhack.scheduleTitle1')} {t('buidlhack.scheduleTitle1') && ' '}<span className="text-primary italic">{t('buidlhack.scheduleHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">{t('buidlhack.scheduleDesc')}</p>
           </div>
           <div className="space-y-4">
             {schedule.map((item, i) => (
@@ -171,8 +174,8 @@ export default function BuidlHackPage() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">Our <span className="text-primary italic">Sponsors</span></h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">The sponsors fueling BuidlHack 2026.</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">{t('buidlhack.sponsorsTitle1')} {t('buidlhack.sponsorsTitle1') && ' '}<span className="text-primary italic">{t('buidlhack.sponsorsHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">{t('buidlhack.sponsorsDesc')}</p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5 max-w-5xl mx-auto">
             {[
@@ -204,8 +207,8 @@ export default function BuidlHackPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">Our <span className="text-primary italic">Partners</span></h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">The organizations powering BuidlHack 2026.</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">{t('buidlhack.partnersTitle1')} {t('buidlhack.partnersTitle1') && ' '}<span className="text-primary italic">{t('buidlhack.partnersHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">{t('buidlhack.partnersDesc')}</p>
           </div>
           <div className="grid grid-cols-2 md:flex md:items-center md:justify-center gap-8 md:gap-x-20 max-w-md md:max-w-none mx-auto">
             {[
@@ -242,9 +245,9 @@ export default function BuidlHackPage() {
               </svg>
             </div>
             <div className="relative z-10">
-              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">Ready to <span className="text-primary italic">Build?</span></h3>
+              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">{t('buidlhack.ctaTitle1')} {t('buidlhack.ctaTitle1') && ' '}<span className="text-primary italic">{t('buidlhack.ctaHighlight')}</span></h3>
               <p className="text-gray-400 max-w-2xl mx-auto text-lg mb-10">
-                Join our community to stay updated on BuidlHack 2026 — team matching, workshops, and more.
+                {t('buidlhack.ctaDesc')}
               </p>
               <a
                 href={COMMUNITY_LINK}
@@ -252,7 +255,7 @@ export default function BuidlHackPage() {
                 rel="noopener noreferrer"
                 className="bg-primary text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-primary-600 transition-all shadow-lg shadow-primary/20 hover:-translate-y-1 inline-block"
               >
-                Join Community
+                {t('buidlhack.joinCommunity')}
               </a>
             </div>
           </div>

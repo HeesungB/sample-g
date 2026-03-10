@@ -1,22 +1,27 @@
+'use client';
+
 import React from "react";
+import { useLanguage } from '@/context/LanguageContext';
 
 const TrackRecord = () => {
+  const { t } = useLanguage();
+
   const stats = [
     {
-      label: "Since",
-      value: "2018",
-      sub: "Longest-running builder-first conference",
+      label: t('track.sinceLbl'),
+      value: t('track.sinceVal'),
+      sub: t('track.sinceSub'),
     },
     {
-      label: "Events",
-      value: "150+",
-      sub: "Flagship conferences and builder gatherings",
+      label: t('track.eventsLbl'),
+      value: t('track.eventsVal'),
+      sub: t('track.eventsSub'),
     },
-    { label: "Attendees", value: "20K+", sub: "Week-long participants" },
+    { label: t('track.attendeesLbl'), value: t('track.attendeesVal'), sub: t('track.attendeesSub') },
     {
-      label: "Organizations",
-      value: "100+",
-      sub: "Global leading foundations & researchers",
+      label: t('track.orgsLbl'),
+      value: t('track.orgsVal'),
+      sub: t('track.orgsSub'),
     },
   ];
 
@@ -25,11 +30,11 @@ const TrackRecord = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center lg:text-left">
           <h2 className="text-primary font-bold tracking-widest uppercase mb-2 text-sm">
-            Track Record
+            {t('track.label')}
           </h2>
           <h3 className="text-4xl md:text-5xl font-black tracking-tight">
-            From Market Momentum <br className="hidden md:block" /> to{" "}
-            <span className="text-primary">Builder Reality</span>
+            {t('track.heading1')} <br className="hidden md:block" /> {t('track.heading2')}{' '}
+            <span className="text-primary">{t('track.headingHighlight')}</span>
           </h3>
         </div>
 

@@ -1,21 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-
-interface EventEntry {
-  title: string;
-  org: string;
-  description?: string;
-  time?: string;
-  location?: string;
-  link?: string;
-  logos?: string[];
-}
-
-interface EventDay {
-  date: string;
-  events: EventEntry[];
-}
+import { useLanguage } from '@/context/LanguageContext';
+import { mainEvents } from '@/data/mainEvents';
 
 interface SideEvent {
   id: string;
@@ -47,29 +34,7 @@ const isMainEvent = (sideEventName: string) => {
 };
 
 const EventsOverview = () => {
-  const mainEvents: EventDay[] = [
-    { date: 'APR 14', events: [
-      { title: 'BuidlHack 2026 Builder Day', org: 'KBWA', time: '18:00pm - 22:00pm', location: 'DSRV Office, Gangnam', link: 'https://www.buidlkorea.com/buidlhack2026', logos: ['/org-kbwa.svg'] },
-    ] },
-    { date: 'APR 15', events: [
-      { title: 'AI / Infra Con', org: 'Catalyze', time: '18:00pm - 22:00pm', location: 'To Be Announced', link: 'https://luma.com/8nzr1zec', logos: ['/org-catalyze.svg'] },
-      { title: 'Buidl Asia: Next Finance Summit', org: 'ARK Point', time: '13:00pm - 18:00pm', location: 'Grandhill Convention, Gangnam', link: 'https://luma.com/cav0i3pu', logos: ['/org-arkpoint.svg'] },
-    ] },
-    { date: 'APR 16', events: [
-      { title: 'Buidl Asia 2026 Day 1', org: 'KryptoPlanet', time: '10:00am - 18:00pm', location: 'Sofitel Ambassador, Jamsil', link: 'https://buidl.asia', logos: ['/org-kryptoplanet.svg'] },
-    ] },
-    { date: 'APR 17', events: [
-      { title: 'Buidl Asia 2026 Day 2', org: 'KryptoPlanet', time: '10:00am - 18:00pm', location: 'Sofitel Ambassador, Jamsil', link: 'https://buidl.asia', logos: ['/org-kryptoplanet.svg'] },
-      { title: 'CIS 2026 - Institutional Day', org: 'Xangle', time: '13:30pm - 21:00pm', location: 'The Plaza Seoul, Jung-Gu', link: 'https://cis2060.io/', logos: ['/org-xangle.png'] },
-    ] },
-    { date: 'APR 18', events: [
-      { title: 'CIS 2026 - Retail Festival', org: 'Xangle', time: '10:00am - 18:00pm', location: 'S-Factory, Seong Su', link: 'https://cis2060.io/', logos: ['/org-xangle.png'] },
-      { title: 'BuidlHack 2026 – Final Pitch', org: 'KBWA', time: '11:00am - 18:00pm', location: 'DSRV Office, Gangnam', link: 'https://www.buidlkorea.com/buidlhack2026', logos: ['/org-kbwa.svg'] },
-    ] },
-    { date: 'APR 19', events: [
-      { title: 'CIS 2026 - Retail Festival', org: 'Xangle', time: '10:00am - 18:00pm', location: 'S-Factory, Seong Su', link: 'https://cis2060.io/', logos: ['/org-xangle.png'] },
-    ] },
-  ];
+  const { t } = useLanguage();
 
   const [sideEvents, setSideEvents] = useState<SideEvent[]>([]);
   const [loading, setLoading] = useState(false);
@@ -120,12 +85,12 @@ const EventsOverview = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 gap-6 text-center md:text-left">
           <div>
-            <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tight">See <span className="text-primary italic">Events</span></h2>
-            <p className="text-gray-500 max-w-lg">Explore the flagship conferences and community-led gatherings across Seoul.</p>
+            <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tight">{t('events.heading1')} {t('events.heading1') && ' '}<span className="text-primary italic">{t('events.headingHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-lg">{t('events.description')}</p>
           </div>
           <a href="https://se.ro/events/new?&parentEventSlug=korea-buidl-week-2026" target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden border-2 border-primary text-primary px-5 py-2.5 rounded-full font-bold shrink-0 transition-all hover:shadow-lg hover:shadow-primary/25 hover:scale-105">
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent bg-[length:200%_100%] group-hover:animate-[shimmer_1.5s_ease-in-out_infinite]" />
-            <span className="relative">+ Add Side Event</span>
+            <span className="relative">{t('events.addSideEvent')}</span>
           </a>
         </div>
 
@@ -133,23 +98,23 @@ const EventsOverview = () => {
         <div className="flex gap-2 mb-6">
           <button
             onClick={() => setActiveTab('main')}
-            className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
+            className={`min-w-[120px] px-5 py-2 rounded-full text-sm font-semibold transition-colors text-center cursor-pointer ${
               activeTab === 'main'
                 ? 'bg-primary text-white'
                 : 'border border-gray-200 text-gray-500 hover:border-gray-300'
             }`}
           >
-            Main Events
+            {t('events.mainEvents')}
           </button>
           <button
             onClick={() => setActiveTab('side')}
-            className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
+            className={`min-w-[120px] px-5 py-2 rounded-full text-sm font-semibold transition-colors text-center cursor-pointer ${
               activeTab === 'side'
                 ? 'bg-primary text-white'
                 : 'border border-gray-200 text-gray-500 hover:border-gray-300'
             }`}
           >
-            Side Events
+            {t('events.sideEvents')}
           </button>
         </div>
 
@@ -221,9 +186,9 @@ const EventsOverview = () => {
         ) : (
           <div className="rounded-2xl border border-gray-100 overflow-hidden divide-y divide-gray-100">
             {loading ? (
-              <div className="px-5 py-10 text-center text-gray-400">Loading side events...</div>
+              <div className="px-5 py-10 text-center text-gray-400">{t('events.loading')}</div>
             ) : sideEvents.length === 0 ? (
-              <div className="px-5 py-10 text-center text-gray-400">No side events yet. Be the first to add one!</div>
+              <div className="px-5 py-10 text-center text-gray-400">{t('events.noEvents')}</div>
             ) : (
               sideEvents.map((event) => (
                 <a
@@ -272,7 +237,7 @@ const EventsOverview = () => {
                     {isMainEvent(event.name) ? (
                       <span className="inline-flex items-center gap-1.5 bg-secondary text-white text-sm font-bold uppercase tracking-wide px-4 py-2 rounded-xl">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clipRule="evenodd" /></svg>
-                        Main Event
+                        {t('events.mainEventBadge')}
                       </span>
                     ) : (
                       <div className="text-gray-300">

@@ -1,29 +1,34 @@
+'use client';
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from '@/context/LanguageContext';
 
 import { members } from '@/data/members';
 
 export default function AboutPage() {
+  const { t } = useLanguage();
+
   return (
     <main className="min-h-screen bg-white">
       <Navbar />
       <div className="pt-32 pb-24 px-4 max-w-7xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-black mb-10">About <span className="text-primary">KBW 2026</span></h1>
+        <h1 className="text-5xl md:text-7xl font-black mb-10">{t('about.title1')} {t('about.title1') && ' '}<span className="text-primary">{t('about.title2')}</span></h1>
         <div className="prose prose-xl max-w-none text-gray-600 space-y-8">
           <p className="text-2xl font-medium text-black">
-            Korea Buidl Week is a distributed, multi-host, builder-centric festival.
+            {t('about.intro')}
           </p>
           <p>
-            It is not a single event—it is a co-created ecosystem-level experience featuring technical conferences, retail events, hackathons, startup competitions, and cultural activations.
+            {t('about.body')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
             <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100">
-              <h3 className="text-2xl font-bold mb-4 text-black">Korea, Crypto & Talent Stronghold</h3>
-              <p>Korea combines deep crypto liquidity with a massive user base and a mature exchange infrastructure. Backed by world-class engineering culture and strong university pipelines, it has become a dense talent hub where builders consistently form teams and ship real products.</p>
+              <h3 className="text-2xl font-bold mb-4 text-black">{t('about.card1Title')}</h3>
+              <p>{t('about.card1Body')}</p>
             </div>
             <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100">
-              <h3 className="text-2xl font-bold mb-4 text-black">Global Builder Gateway to APAC</h3>
-              <p>Korea Buidl Week turns Seoul into APAC&apos;s builder gateway by concentrating flagship conferences, builder residencies, startup competitions, and showcases into one focused week.</p>
+              <h3 className="text-2xl font-bold mb-4 text-black">{t('about.card2Title')}</h3>
+              <p>{t('about.card2Body')}</p>
             </div>
           </div>
         </div>
@@ -31,9 +36,9 @@ export default function AboutPage() {
         {/* Meet the Alliance */}
         <div className="mt-24">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">Meet the <span className="text-primary italic">Alliance</span></h2>
+            <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">{t('alliance.heading1')} {t('alliance.heading1') && ' '}<span className="text-primary italic">{t('alliance.headingHighlight')}</span></h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg font-medium">
-              A coalition of Korea&apos;s leading Web3 organizations providing governance, ecosystem curation, and strategic direction.
+              {t('alliance.description')}
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
