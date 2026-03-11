@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { mainEvents } from '@/data/mainEvents';
 
 interface SideEvent {
   id: string;
@@ -119,69 +118,14 @@ const EventsOverview = () => {
         </div>
 
         {activeTab === 'main' ? (
-          <div className="rounded-2xl border border-gray-100 overflow-hidden divide-y divide-gray-100">
-            {mainEvents.map((day, dayIdx) => (
-              day.events.map((event, eventIdx) => (
-                <div
-                  key={`${dayIdx}-${eventIdx}`}
-                  className="flex flex-col md:flex-row md:items-center gap-4 px-5 py-5 hover:bg-gray-50/80 transition-colors"
-                >
-                  {/* Date */}
-                  <div className="md:w-40 shrink-0">
-                    {eventIdx === 0 ? (
-                      <div className="flex items-center gap-2.5">
-                        <span className="bg-primary text-white font-black text-sm px-3 py-1.5 rounded-xl">{day.date}</span>
-                        <span className="text-gray-400 text-xs font-semibold uppercase">
-                          {['TUE','WED','THU','FRI','SAT','SUN'][dayIdx]}
-                        </span>
-                      </div>
-                    ) : (
-                      <div className="hidden md:block" />
-                    )}
-                  </div>
-
-                  {/* Event Info (title, org, time/location stacked) */}
-                  <div className="flex-grow min-w-0">
-                    {event.link ? (
-                      <a href={event.link} target="_blank" rel="noopener noreferrer" className="text-base font-bold text-secondary hover:text-primary transition-colors hover:underline">{event.title}</a>
-                    ) : (
-                      <h4 className="text-base font-bold text-secondary">{event.title}</h4>
-                    )}
-                    <p className="text-primary text-sm font-semibold mt-0.5">{event.org}</p>
-                    {(event.time || event.location) && (
-                      <div className="flex items-center gap-3 text-sm text-gray-400 mt-1">
-                        {event.time && (
-                          <div className="flex items-center gap-1.5">
-                            <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
-                            <span>{event.time}</span>
-                          </div>
-                        )}
-                        {event.location && (
-                          <div className="flex items-center gap-1.5">
-                            <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            <span>{event.location}</span>
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Logos */}
-                  {event.logos && event.logos.length > 0 && (
-                    <div className="w-auto md:w-32 flex items-center justify-start md:justify-end gap-2 shrink-0">
-                      {event.logos.map((logo, li) => (
-                        <img
-                          key={li}
-                          src={logo}
-                          alt={event.org}
-                          className={`object-contain ${logo.includes('kbwa') ? 'h-10 max-w-[120px]' : 'h-7 max-w-[80px]'}`}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))
-            ))}
+          <div className="rounded-2xl border border-gray-100 overflow-hidden">
+            <iframe
+              src="https://buidlkorea.lootgo.app/"
+              className="w-full h-[500px] md:h-[650px] lg:h-[800px]"
+              style={{ border: 'none' }}
+              allowFullScreen
+              title="Korea Buidl Week Event Map"
+            />
           </div>
         ) : (
           <div className="rounded-2xl border border-gray-100 overflow-hidden divide-y divide-gray-100">
