@@ -15,6 +15,7 @@ export interface EventDay {
 
 export const mainEvents: EventDay[] = [
   { date: 'APR 14', events: [
+    { title: 'Shefi Seoul Summit 2026', org: 'Shefi', time: '13:30pm - 17:30pm', location: 'ECC Conference Hall A, Ewha Womans University', link: 'https://luma.com/jz7wca0x' },
     { title: 'BuidlHack 2026 Builder Day', org: 'KBWA', time: '18:00pm - 22:00pm', location: 'DSRV Office, Gangnam', link: 'https://www.buidlkorea.com/buidlhack2026', logos: ['/org-kbwa.svg'] },
   ] },
   { date: 'APR 15', events: [
