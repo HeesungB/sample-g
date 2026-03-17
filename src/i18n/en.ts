@@ -82,8 +82,8 @@ export const en = {
     // 섹션 설명
     description: 'Explore the flagship conferences and community-led gatherings across Seoul.',
     addSideEvent: '+ Add Side Event', // 사이드 이벤트 추가 버튼
-    mainEvents: 'Main Events', // 탭 버튼
-    sideEvents: 'Side Events', // 탭 버튼
+    mainEvents: 'Map View', // 탭 버튼
+    sideEvents: 'List View', // 탭 버튼
     loading: 'Loading side events...', // 로딩 상태
     // 사이드 이벤트 없음 상태
     noEvents: 'No side events yet. Be the first to add one!',

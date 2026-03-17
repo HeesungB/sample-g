@@ -82,8 +82,8 @@ export const ko = {
     // 섹션 설명
     description: '서울 전역의 플래그십 컨퍼런스와 커뮤니티 주도 모임을 탐색하세요.',
     addSideEvent: '+ 사이드 이벤트 추가', // 사이드 이벤트 추가 버튼
-    mainEvents: '메인 이벤트', // 탭 버튼
-    sideEvents: '사이드 이벤트', // 탭 버튼
+    mainEvents: 'Map View', // 탭 버튼
+    sideEvents: 'List View', // 탭 버튼
     loading: '사이드 이벤트 로딩 중...', // 로딩 상태
     // 사이드 이벤트 없음 상태
     noEvents: '아직 사이드 이벤트가 없습니다. 첫 번째로 추가해 보세요!',
