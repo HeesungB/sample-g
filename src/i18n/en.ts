@@ -103,6 +103,7 @@ export const en = {
     cat2: 'Participating Organizations', // 카테고리 2
     cat3: 'Media Partners', // 카테고리 3
     cat4: 'Additional Support', // 카테고리 4
+    cat5: 'Community Partners', // 카테고리 5
   },
 
   // ──────────────────────────────────────────────
@@ -205,6 +206,13 @@ export const en = {
     subtitle: 'Connecting global builders with Korea\u2019s leading Web3 ecosystem.',
     additionalTitle1: 'Additional', // 추가 지원 섹션 제목 앞부분
     additionalHighlight: 'Support', // 추가 지원 섹션 제목 강조
+
+    // LootGo 카드 (파트너 페이지 하단)
+    lootgoSubtitle: 'REAL-WORLD TREASURE HUNTING',
+    lootgoTitle: 'Activate Your Audience',
+    lootgoHighlight: 'with LootGO',
+    lootgoDesc: 'LootGO transforms daily life into a real-world treasure hunt for crypto. A free-to-play app that rewards users with memecoins for their IRL activity — walk to collect loot boxes, open them to earn crypto, NFTs, and real-world prizes. Built on Monad blockchain with an embedded wallet, fiat onramp, and 1inch DEX integration for seamless token swaps.',
+    lootgoBtnText: 'View Proposal',
 
     // Protoville 카드 (파트너 페이지 하단)
     protovilleTitle: 'Prototyping Rural Futures', // 제목
@@ -332,28 +340,36 @@ export const en = {
     scheduleTitle1: 'The', // 제목 앞부분
     scheduleHighlight: 'Schedule', // 제목 강조
     scheduleDesc: 'Five days of building, learning, and competing.', // 설명
-    kickoffTitle: 'Kickoff AMA', // 일정 1 제목
-    // 일정 1 설명
-    kickoffDesc: 'Online AMA to introduce BuidlHack2026 Details',
-    workshopTitle: 'Sponsor Workshop', // 일정 2 제목
-    // 일정 2 설명
-    workshopDesc: 'Online sponsor workshops to deep dive into the sponsor organization\u2019s where about',
-    builderDayTitle: 'BuidlHack 2026 Builder Day', // 일정 3 제목
-    // 일정 3 설명
-    builderDayDesc: 'Offline Builder Day — understand the stacks, exchange ideas, and meet teams',
-    submissionTitle: 'Submission Due Date', // 일정 4 제목
-    // 일정 4 설명
-    submissionDesc: 'All General/Sponsor Track project submission is due 23:59 KST through Ludium Portal',
-    pitchTitle: 'Final Pitch Day', // 일정 5 제목
-    // 일정 5 설명
-    pitchDesc: 'Present your project to judges and compete for the prize pool',
+    kickoffTitle: 'Kickoff AMA',
+    kickoffDesc: 'Tracks, rules, and Q&A',
+    bnbWorkshopTitle: 'BNB Workshop',
+    bnbWorkshopDesc: 'Online technical session on BNB',
+    yggWorkshopTitle: 'YGG & Verse8 Workshop',
+    yggWorkshopDesc: 'Online technical session on YGG & Verse8',
+    nearWorkshopTitle: 'Near AI Workshop',
+    nearWorkshopDesc: 'Online technical session on Near AI',
+    statusWorkshopTitle: 'Status Network Workshop',
+    statusWorkshopDesc: 'Online technical session on Status Network',
+    builderDayTitle: 'Builder Day',
+    builderDayDesc: 'Offline networking @ DSRV Office',
+    hackingTitle: 'Hacking Period',
+    hackingTime: 'All Day',
+    hackingDesc: 'Build, attend workshops, get mentorship',
+    submissionTitle: 'Submission Deadline',
+    submissionTime: 'By 23:59 PM',
+    submissionDesc: 'Final project submission closes at midnight',
+    pitchTitle: 'Final Pitch Day',
+    pitchDesc: 'Present to judges, winners announced',
 
     // 스폰서 & 파트너 섹션 (BuidlHack 페이지 내)
     sponsorsTitle1: 'Our', // 제목 앞부분
     sponsorsHighlight: 'Sponsors', // 제목 강조
     sponsorsDesc: 'The sponsors fueling BuidlHack 2026.', // 설명
-    partnersTitle1: 'Our', // 제목 앞부분
-    partnersHighlight: 'Partners', // 제목 강조
+    communityTitle1: 'Community', // 커뮤니티 파트너 제목 앞부분
+    communityHighlight: 'Partners', // 커뮤니티 파트너 제목 강조
+    communityDesc: 'The communities supporting BuidlHack 2026.', // 커뮤니티 파트너 설명
+    partnersTitle1: 'Meet the', // 제목 앞부분
+    partnersHighlight: 'Organizers', // 제목 강조
     partnersDesc: 'The organizations powering BuidlHack 2026.', // 설명
 
     // CTA 섹션 (BuidlHack 페이지 최하단)

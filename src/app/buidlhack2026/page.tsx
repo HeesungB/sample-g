@@ -27,11 +27,15 @@ export default function BuidlHackPage() {
   ];
 
   const schedule = [
-    { date: 'MAR 11', day: 'Wed', title: t('buidlhack.kickoffTitle'), desc: t('buidlhack.kickoffDesc') },
-    { date: 'MAR 12\n– APR 14', day: 'Thu–Tue', title: t('buidlhack.workshopTitle'), desc: t('buidlhack.workshopDesc') },
-    { date: 'APR 14', day: 'Tue', title: t('buidlhack.builderDayTitle'), desc: t('buidlhack.builderDayDesc') },
-    { date: 'APR 17', day: 'Fri', title: t('buidlhack.submissionTitle'), desc: t('buidlhack.submissionDesc') },
-    { date: 'APR 18', day: 'Sat', title: t('buidlhack.pitchTitle'), desc: t('buidlhack.pitchDesc') },
+    { date: 'MAR 11', day: 'Wed', title: t('buidlhack.kickoffTitle'), time: '20:00 – 21:00 PM', desc: t('buidlhack.kickoffDesc') },
+    { date: 'MAR 19', day: 'Thu', title: t('buidlhack.bnbWorkshopTitle'), time: '21:00 – 22:00 PM', desc: t('buidlhack.bnbWorkshopDesc') },
+    { date: 'MAR 25', day: 'Wed', title: t('buidlhack.yggWorkshopTitle'), time: '20:00 – 21:00 PM', desc: t('buidlhack.yggWorkshopDesc') },
+    { date: 'APR 1', day: 'Wed', title: t('buidlhack.nearWorkshopTitle'), time: '20:00 – 21:00 PM', desc: t('buidlhack.nearWorkshopDesc') },
+    { date: 'APR 7', day: 'Tue', title: t('buidlhack.statusWorkshopTitle'), time: '20:00 – 21:00 PM', desc: t('buidlhack.statusWorkshopDesc') },
+    { date: 'APR 14', day: 'Tue', title: t('buidlhack.builderDayTitle'), time: '18:00 – 22:00 PM', desc: t('buidlhack.builderDayDesc') },
+    { date: 'APR 15\n– APR 17', day: 'Wed–Fri', title: t('buidlhack.hackingTitle'), time: t('buidlhack.hackingTime'), desc: t('buidlhack.hackingDesc') },
+    { date: 'APR 17', day: 'Fri', title: t('buidlhack.submissionTitle'), time: t('buidlhack.submissionTime'), desc: t('buidlhack.submissionDesc') },
+    { date: 'APR 18', day: 'Sat', title: t('buidlhack.pitchTitle'), time: '11:00 AM – 18:00 PM', desc: t('buidlhack.pitchDesc') },
   ];
 
   return (
@@ -164,6 +168,9 @@ export default function BuidlHackPage() {
                   <h4 className="text-xl font-bold group-hover:text-primary transition-colors">{item.title}</h4>
                   <p className="text-gray-500 text-sm mt-1 font-medium">{item.desc}</p>
                 </div>
+                <div className="flex-shrink-0 mt-2 md:mt-0 md:ml-6">
+                  <span className="text-primary font-bold text-sm md:text-base">{item.time}</span>
+                </div>
               </div>
             ))}
           </div>
@@ -194,6 +201,42 @@ export default function BuidlHackPage() {
                     src={logo.src}
                     alt={logo.name}
                     className={`max-w-full w-auto object-contain transition-all duration-300 ${logo.h}`}
+                  />
+                </div>
+                <span className="text-xs md:text-sm font-semibold text-gray-400 group-hover:text-gray-600 transition-colors">{logo.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community Partners */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">{t('buidlhack.communityTitle1')} {t('buidlhack.communityTitle1') && ' '}<span className="text-primary italic">{t('buidlhack.communityHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">{t('buidlhack.communityDesc')}</p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 max-w-5xl mx-auto">
+            {[
+              { src: '/community-aidenteti.svg', name: 'Aidenteti Crew', h: 'max-h-11 md:max-h-14 lg:max-h-12' },
+              { src: '/community-bay.svg', name: 'BAY', h: 'max-h-11 md:max-h-14 lg:max-h-12' },
+              { src: '/community-blockchain-valley.svg', name: 'Blockchain Valley', h: 'max-h-11 md:max-h-14 lg:max-h-12' },
+              { src: '/community-ewha-chain.png', name: 'EWHA CHAIN', h: 'max-h-[59px] md:max-h-[75px] lg:max-h-16', invert: true },
+              { src: '/community-pdao.png', name: 'PDAO', h: 'max-h-11 md:max-h-14 lg:max-h-12', invert: true },
+              { src: '/community-sol3hacker.png', name: 'Sol3Hacker', h: 'max-h-11 md:max-h-14 lg:max-h-12', rounded: true },
+              { src: '/community-bluenode.png', name: 'Bluenode', h: 'max-h-11 md:max-h-14 lg:max-h-12', invert: true },
+              { src: '/community-skkrypto.svg', name: 'Skkrypto', h: 'max-h-16 md:max-h-[84px] lg:max-h-[70px]', invert: true },
+            ].map((logo, i) => (
+              <div
+                key={i}
+                className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between p-6 md:p-8 aspect-square"
+              >
+                <div className="flex-1 flex items-center justify-center w-full">
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className={`max-w-full w-auto object-contain transition-all duration-300 ${logo.h}${logo.invert ? ' brightness-0' : ''}${logo.rounded ? ' rounded-xl' : ''}`}
                   />
                 </div>
                 <span className="text-xs md:text-sm font-semibold text-gray-400 group-hover:text-gray-600 transition-colors">{logo.name}</span>

@@ -55,10 +55,25 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
       nameKey: 'partners.cat4',
       reverse: true,
       logos: [
+        { src: '/partner-lootgo.png', h: 'h-[19px] md:h-[26px]', filter: 'invert grayscale contrast-[3] brightness-[0.6]' },
         { src: '/partner-protoville.svg', h: 'h-8 md:h-11', filter: 'grayscale' },
         { src: '/partner-elixi-b.svg', h: 'h-6 md:h-8', className: '-ml-10 md:-ml-16' },
         { src: '/partner-osean.png', h: 'h-[13px] md:h-[18px]', invert: true },
         { src: '/partner-ath.png', h: 'h-8 md:h-11', filter: 'grayscale' },
+      ],
+    },
+    {
+      nameKey: 'partners.cat5',
+      reverse: false,
+      logos: [
+        { src: '/community-aidenteti.svg', h: 'h-5 md:h-7', filter: 'grayscale' },
+        { src: '/community-bay.svg', h: 'h-7 md:h-10' },
+        { src: '/community-blockchain-valley.svg', h: 'h-7 md:h-10' },
+        { src: '/community-ewha-chain.png', h: 'h-8 md:h-12', invert: true },
+        { src: '/community-pdao.png', h: 'h-7 md:h-10', invert: true },
+        { src: '/community-sol3hacker.png', h: 'h-7 md:h-10', filter: 'grayscale' },
+        { src: '/community-bluenode.png', h: 'h-5 md:h-7', invert: true },
+        { src: '/community-skkrypto.svg', h: 'h-10 md:h-14', filter: 'grayscale' },
       ],
     },
   ];
@@ -96,13 +111,14 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
           return (
             <div className="flex flex-col gap-6">
               {rows.map((logos, rowIdx) => {
-                // Expand logos to fill wide viewports seamlessly
-                let expanded = [...logos];
-                while (expanded.length < 12) {
-                  expanded = [...expanded, ...logos];
+                // Ensure enough logos to fill wide viewports
+                let filled = [...logos];
+                while (filled.length < 16) {
+                  filled = [...filled, ...logos];
                 }
 
                 const reverse = rowIdx % 2 === 1;
+                const duration = filled.length * 3;
 
                 return (
                   <div key={rowIdx} className="relative flex overflow-hidden py-1">
@@ -111,15 +127,16 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
                     <div
                       className="flex will-change-transform"
                       style={{
-                        animation: `${reverse ? 'scroll-right' : 'scroll-left'} ${expanded.length * 3}s linear infinite`,
+                        animation: `${reverse ? 'scroll-right' : 'scroll-left'} ${duration}s linear infinite`,
+                        backfaceVisibility: 'hidden',
                       }}
                     >
-                      {[0, 1, 2, 3].map((copy) => (
+                      {[0, 1].map((copy) => (
                         <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy > 0 || undefined}>
-                          {expanded.map((logo, i) => (
+                          {filled.map((logo, i) => (
                             <div
                               key={i}
-                              className={`flex items-center justify-center ${logo.filter ?? (logo.invert ? 'invert grayscale' : 'brightness-0')} opacity-40 hover:opacity-100 transition-all shrink-0 mx-8 md:mx-16 ${logo.className ?? ''}`}
+                              className={`flex items-center justify-center ${logo.filter ?? (logo.invert ? 'invert grayscale' : 'brightness-0')} opacity-40 hover:opacity-100 transition-opacity shrink-0 mx-8 md:mx-16 ${logo.className ?? ''}`}
                             >
                               <img
                                 src={logo.src}

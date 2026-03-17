@@ -103,6 +103,7 @@ export const ko = {
     cat2: '참여 조직', // 카테고리 2
     cat3: '미디어 파트너', // 카테고리 3
     cat4: '추가 지원', // 카테고리 4
+    cat5: '커뮤니티 파트너', // 카테고리 5
   },
 
   // ──────────────────────────────────────────────
@@ -207,6 +208,13 @@ export const ko = {
     subtitle: '한국의 선도적인 Web3 생태계와 글로벌 빌더를 연결합니다.',
     additionalTitle1: '추가', // 추가 지원 섹션 제목 앞부분
     additionalHighlight: '지원', // 추가 지원 섹션 제목 강조
+
+    // LootGo 카드 (파트너 페이지 하단)
+    lootgoSubtitle: '실제 세계 보물찾기',
+    lootgoTitle: '오디언스를 활성화하세요',
+    lootgoHighlight: 'LootGO와 함께',
+    lootgoDesc: 'LootGO는 일상을 실제 세계 보물찾기로 변환합니다. 걸으면서 루트박스를 수집하고, 열어서 암호화폐, NFT, 실물 상품을 획득하는 무료 플레이 앱입니다. Monad 블록체인 기반으로 임베디드 월렛, 법정화폐 온램프, 1inch DEX 통합을 통한 원활한 토큰 스왑을 지원합니다.',
+    lootgoBtnText: '제안서 보기',
 
     // Protoville 카드 (파트너 페이지 하단)
     protovilleTitle: '농촌의 미래를 프로토타이핑', // 제목
@@ -333,28 +341,36 @@ export const ko = {
     scheduleTitle1: '', // 제목 앞부분 (한국어 미사용)
     scheduleHighlight: '스케줄', // 제목 강조
     scheduleDesc: '빌딩, 학습, 경쟁의 5일.', // 설명
-    kickoffTitle: '킥오프 AMA', // 일정 1 제목
-    // 일정 1 설명
-    kickoffDesc: 'BuidlHack2026 세부 사항을 소개하는 온라인 AMA',
-    workshopTitle: '스폰서 워크숍', // 일정 2 제목
-    // 일정 2 설명
-    workshopDesc: '스폰서 조직에 대해 심층적으로 알아보는 온라인 워크숍',
-    builderDayTitle: 'BuidlHack 2026 빌더 데이', // 일정 3 제목
-    // 일정 3 설명
-    builderDayDesc: '오프라인 빌더 데이 — 스택 이해, 아이디어 교환, 팀 만남',
-    submissionTitle: '제출 마감일', // 일정 4 제목
-    // 일정 4 설명
-    submissionDesc: '모든 일반/스폰서 트랙 프로젝트 제출 마감 23:59 KST, Ludium Portal을 통해',
-    pitchTitle: '파이널 피치 데이', // 일정 5 제목
-    // 일정 5 설명
-    pitchDesc: '심사위원 앞에서 프로젝트를 발표하고 상금을 경쟁하세요',
+    kickoffTitle: '킥오프 AMA',
+    kickoffDesc: '트랙, 규칙 및 Q&A',
+    bnbWorkshopTitle: 'BNB 워크숍',
+    bnbWorkshopDesc: 'BNB 온라인 기술 세션',
+    yggWorkshopTitle: 'YGG & Verse8 워크숍',
+    yggWorkshopDesc: 'YGG & Verse8 온라인 기술 세션',
+    nearWorkshopTitle: 'Near AI 워크숍',
+    nearWorkshopDesc: 'Near AI 온라인 기술 세션',
+    statusWorkshopTitle: 'Status Network 워크숍',
+    statusWorkshopDesc: 'Status Network 온라인 기술 세션',
+    builderDayTitle: '빌더 데이',
+    builderDayDesc: 'DSRV 오피스에서 오프라인 네트워킹',
+    hackingTitle: '해킹 기간',
+    hackingTime: '종일',
+    hackingDesc: '빌딩, 워크숍 참여, 멘토링',
+    submissionTitle: '제출 마감',
+    submissionTime: '23:59 PM 까지',
+    submissionDesc: '최종 프로젝트 제출 마감 자정',
+    pitchTitle: '파이널 피치 데이',
+    pitchDesc: '심사위원 앞에서 발표, 수상자 발표',
 
     // 스폰서 & 파트너 섹션 (BuidlHack 페이지 내)
     sponsorsTitle1: '', // 제목 앞부분 (한국어 미사용)
     sponsorsHighlight: '스폰서', // 제목 강조
     sponsorsDesc: 'BuidlHack 2026을 후원하는 스폰서들.', // 설명
+    communityTitle1: '', // 커뮤니티 파트너 제목 앞부분 (한국어 미사용)
+    communityHighlight: '커뮤니티 파트너', // 커뮤니티 파트너 제목 강조
+    communityDesc: 'BuidlHack 2026을 지원하는 커뮤니티들.', // 커뮤니티 파트너 설명
     partnersTitle1: '', // 제목 앞부분 (한국어 미사용)
-    partnersHighlight: '파트너', // 제목 강조
+    partnersHighlight: '오거나이저', // 제목 강조
     partnersDesc: 'BuidlHack 2026을 지원하는 조직들.', // 설명
 
     // CTA 섹션 (BuidlHack 페이지 최하단)

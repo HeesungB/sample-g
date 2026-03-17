@@ -27,6 +27,47 @@ export default function PartnersPage() {
           </div>
 
           <div className="space-y-20">
+            {/* LootGo - Image Left, Text Right */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="order-1">
+                <div className="relative w-full aspect-[5/3] rounded-2xl shadow-lg overflow-hidden bg-gradient-to-br from-[#0a0a1a] via-[#12122a] to-[#0a0a1a]">
+                  <div className="absolute inset-0 opacity-[0.06]" style={{background: 'radial-gradient(circle at 70% 30%, #8b5cf6 0%, transparent 55%)'}} />
+                  <div className="absolute inset-0 opacity-[0.04]" style={{background: 'radial-gradient(circle at 25% 80%, #06b6d4 0%, transparent 45%)'}} />
+                  <div className="absolute top-[18%] right-[10%] w-[140px] h-[140px] rounded-full border border-[#8b5cf6]/10" />
+                  <div className="absolute bottom-[20%] left-[8%] w-[100px] h-[100px] rounded-full border border-[#06b6d4]/10" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                    <img src="/partner-lootgo.png" alt="LootGO" className="h-10 md:h-14" />
+                    <p className="text-[#a78bfa] text-[10px] md:text-xs tracking-[4px] font-medium">REAL-WORLD TREASURE HUNTING</p>
+                    <div className="w-20 h-0.5 rounded bg-[#8b5cf6]/30 mt-1" />
+                    <div className="flex items-center gap-6 mt-3">
+                      <div className="text-center">
+                        <p className="text-[#06b6d4] text-lg md:text-xl font-bold">🎁</p>
+                        <p className="text-[#a78bfa]/60 text-[8px] md:text-[9px] tracking-[1px]">LOOTBOXES</p>
+                      </div>
+                      <div className="w-1 h-1 rounded-full bg-[#8b5cf6]/30" />
+                      <div className="text-center">
+                        <p className="text-[#06b6d4] text-lg md:text-xl font-bold">👟</p>
+                        <p className="text-[#a78bfa]/60 text-[8px] md:text-[9px] tracking-[1px]">WALK & EARN</p>
+                      </div>
+                      <div className="w-1 h-1 rounded-full bg-[#8b5cf6]/30" />
+                      <div className="text-center">
+                        <p className="text-[#06b6d4] text-lg md:text-xl font-bold">💰</p>
+                        <p className="text-[#a78bfa]/60 text-[8px] md:text-[9px] tracking-[1px]">CRYPTO</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="order-2">
+                <p className="text-primary font-semibold text-sm tracking-wider mb-3">{t('partnersPage.lootgoSubtitle')}</p>
+                <h3 className="text-3xl md:text-4xl font-black text-secondary mb-2 tracking-tight">{t('partnersPage.lootgoTitle')} <span className="text-primary italic">{t('partnersPage.lootgoHighlight')}</span></h3>
+                <p className="text-gray-600 mb-6">{t('partnersPage.lootgoDesc')}</p>
+                <a href="https://pitch.com/v/buidl-korea-activation---lootgo-ukieb4" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-primary-600 transition-all hover:-translate-y-0.5">
+                  {t('partnersPage.lootgoBtnText')}
+                </a>
+              </div>
+            </div>
+
             {/* ProtoVille - Text Left, Image Right */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="order-2 md:order-1">
