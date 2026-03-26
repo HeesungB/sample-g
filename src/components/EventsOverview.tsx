@@ -24,7 +24,7 @@ const formatDate = (iso: string) => {
 
 const mainEventKeywords = [
   'buidl asia', 'buidlhack', 'cis 2026', 'ai/infracon',
-  'next finance summit', 'ethereum korea one',
+  'next finance summit', 'ethereum korea one', 'shefi seoul summit',
 ];
 
 const isMainEvent = (sideEventName: string) => {

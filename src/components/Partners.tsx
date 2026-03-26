@@ -13,12 +13,13 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
       nameKey: 'partners.cat1',
       reverse: false,
       logos: [
-        { src: '/partner-01.svg', h: 'h-5 md:h-7' },
-        { src: '/partner-02.svg', h: 'h-7 md:h-10' },
+        { src: '/partner-01.svg', h: 'h-6 md:h-8' },
+        { src: '/partner-02.svg', h: 'h-6 md:h-9' },
         { src: '/partner-catalyze.svg', h: 'h-6 md:h-8' },
         { src: '/partner-arkpoint.svg', h: 'h-4 md:h-5' },
         { src: '/partner-kryptoplanet.svg', h: 'h-5 md:h-7' },
         { src: '/partner-xangle.svg', h: 'h-4 md:h-6' },
+        { src: '/partner-ethereum-korea-one.png', h: 'h-12 md:h-16' },
       ],
     },
     {
@@ -39,6 +40,7 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
         { src: '/partner-sero.svg', h: 'h-6 md:h-8' },
         { src: '/partner-squid.svg', h: 'h-7 md:h-10' },
         { src: '/partner-xrpl.svg', h: 'h-8 md:h-11' },
+        { src: '/partner-fobl.png', h: 'h-[72px] md:h-24', filter: 'grayscale' },
       ],
     },
     {
@@ -49,6 +51,7 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
         { src: '/partner-coinness.png', h: 'h-5 md:h-7', invert: true },
         { src: '/partner-block-media.svg', h: 'h-8 md:h-11', invert: true },
         { src: '/partner-bloomingbit.svg', h: 'h-7 md:h-9' },
+        { src: '/partner-pacific-meta.svg', h: 'h-6 md:h-8' },
       ],
     },
     {
@@ -158,20 +161,41 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
             {categories.filter((_, i) => i !== 3).map((cat, catIdx) => (
               <div key={catIdx}>
                 <p className="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-8">{t(cat.nameKey)}</p>
-                <div className="flex items-center justify-center flex-wrap gap-x-12 md:gap-x-20 gap-y-8">
-                  {cat.logos.map((logo, i) => (
-                    <div
-                      key={i}
-                      className={`flex items-center justify-center ${logo.filter ?? (logo.invert ? 'invert grayscale' : 'brightness-0')} opacity-40 hover:opacity-100 transition-all duration-300 ${logo.className ?? ''}`}
-                    >
-                      <img
-                        src={logo.src}
-                        alt="Partner Logo"
-                        className={`w-auto object-contain ${logo.h}`}
-                      />
-                    </div>
-                  ))}
-                </div>
+                {catIdx === 0 ? (
+                  <div className="space-y-10">
+                    {[cat.logos.slice(0, 4), cat.logos.slice(4)].map((row, rowIdx) => (
+                      <div key={rowIdx} className="flex items-center justify-center flex-wrap gap-x-12 md:gap-x-20 gap-y-8">
+                        {row.map((logo, i) => (
+                          <div
+                            key={i}
+                            className={`flex items-center justify-center ${logo.filter ?? (logo.invert ? 'invert grayscale' : 'brightness-0')} opacity-40 hover:opacity-100 transition-all duration-300 ${logo.className ?? ''}`}
+                          >
+                            <img
+                              src={logo.src}
+                              alt="Partner Logo"
+                              className={`w-auto object-contain ${logo.h}`}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center flex-wrap gap-x-12 md:gap-x-20 gap-y-8">
+                    {cat.logos.map((logo, i) => (
+                      <div
+                        key={i}
+                        className={`flex items-center justify-center ${logo.filter ?? (logo.invert ? 'invert grayscale' : 'brightness-0')} opacity-40 hover:opacity-100 transition-all duration-300 ${logo.className ?? ''}`}
+                      >
+                        <img
+                          src={logo.src}
+                          alt="Partner Logo"
+                          className={`w-auto object-contain ${logo.h}`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
