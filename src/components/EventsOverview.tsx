@@ -13,13 +13,29 @@ interface SideEvent {
   location: { address: string; city: string; country: string };
   startDate: string;
   endDate: string;
+  startTime: string | null;
+  endTime: string | null;
   eventType: string[];
   topics: string[];
 }
 
 const formatDate = (iso: string) => {
   const d = new Date(iso);
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'Asia/Seoul' }).toUpperCase();
+};
+
+const formatTime = (iso: string): string | null => {
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return null;
+  const h = d.toLocaleString('en-US', { hour: 'numeric', timeZone: 'Asia/Seoul', hour12: false });
+  const m = d.toLocaleString('en-US', { minute: '2-digit', timeZone: 'Asia/Seoul' });
+  const hours = parseInt(h);
+  const minutes = parseInt(m);
+  if (hours === 0 && minutes === 0) return null;
+  const hh = String(hours).padStart(2, '0');
+  const mm = String(minutes).padStart(2, '0');
+  const period = hours < 12 ? 'AM' : 'PM';
+  return `${hh}:${mm} ${period}`;
 };
 
 const mainEventKeywords = [
@@ -56,6 +72,8 @@ const EventsOverview = () => {
             location: e.location as { address: string; city: string; country: string },
             startDate: formatDate(e.startDate as string),
             endDate: formatDate(e.endDate as string),
+            startTime: formatTime(e.startDate as string),
+            endTime: formatTime(e.endDate as string),
             eventType: (e.eventType as string[]) || [],
             topics: (e.topics as string[]) || [],
           })));
@@ -142,14 +160,28 @@ const EventsOverview = () => {
                   rel="noopener noreferrer"
                   className="flex flex-col md:flex-row md:items-center gap-4 px-5 py-5 hover:bg-gray-50/80 transition-colors block"
                 >
-                  {/* Date */}
-                  <div className="md:w-40 shrink-0">
+                  {/* Date & Time */}
+                  <div className="md:w-48 shrink-0">
                     <div className="flex items-center gap-2.5">
                       <span className="bg-primary text-white font-black text-sm px-3 py-1.5 rounded-xl">{event.startDate}</span>
                       {event.endDate !== event.startDate && (
                         <span className="text-gray-400 text-xs font-semibold">→ {event.endDate}</span>
                       )}
                     </div>
+                    {event.startTime && (
+                      <div className="flex items-center gap-1.5 mt-1.5 ml-0.5">
+                        <svg className="w-3 h-3 text-gray-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <circle cx="12" cy="12" r="9" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
+                        </svg>
+                        <span className="text-gray-500 text-xs font-medium">
+                          {event.startTime}
+                          {event.endTime && event.endDate === event.startDate && (
+                            <span className="text-gray-400"> – {event.endTime}</span>
+                          )}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Event Info */}
