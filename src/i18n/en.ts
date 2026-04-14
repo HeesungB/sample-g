@@ -293,6 +293,13 @@ export const en = {
     athDesc: 'If you\u2019re heading to Korea BUIDL Week 2026, we can capture your conference presence, produce a high-impact vlog, or craft a cinematic trailer around your trip. ATH is a full-cycle creative production. We don\u2019t just shoot and edit. We deconstruct your goals, build a strategic content plan, and execute everything end-to-end — from concept and scripting to visuals, editing, and publishing.',
     athBtnText: 'Visit Website',
 
+    // Tiger Research 카드 (파트너 페이지 하단)
+    tigerSubtitle: 'KOREA WEB3 MARKET MAP',
+    tigerTitle: 'Navigate Korea with',
+    tigerHighlight: 'Tiger Research',
+    tigerDesc: 'A market map built by Tiger Research, an Asia-focused Web3 research firm, based on their annual Korea research reports. It maps out the full landscape of Korean players — delivering insights and information that help global projects entering the Korean market.',
+    tigerBtnText: 'View Market Map',
+
     // 파트너 되기 CTA (파트너 페이지 최하단)
     becomePartnerTitle: 'Become a', // 제목 앞부분
     becomePartnerHighlight: 'Partner', // 제목 강조

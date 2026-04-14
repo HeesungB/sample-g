@@ -41,6 +41,7 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
         { src: '/partner-squid.svg', h: 'h-7 md:h-10' },
         { src: '/partner-xrpl.svg', h: 'h-8 md:h-11' },
         { src: '/partner-fobl.png', h: 'h-[72px] md:h-24', filter: 'grayscale' },
+        { src: '/partner-tiger-research.svg', h: 'h-6 md:h-8' },
       ],
     },
     {

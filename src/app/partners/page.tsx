@@ -27,6 +27,65 @@ export default function PartnersPage() {
           </div>
 
           <div className="space-y-20">
+            {/* Tiger Research - Text Left, Image Right */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="order-2 md:order-1">
+                <p className="text-primary font-semibold text-sm tracking-wider mb-3">{t('partnersPage.tigerSubtitle')}</p>
+                <h3 className="text-3xl md:text-4xl font-black text-secondary mb-2 tracking-tight">{t('partnersPage.tigerTitle')} <span className="text-primary italic">{t('partnersPage.tigerHighlight')}</span></h3>
+                <p className="text-gray-600 mb-6">{t('partnersPage.tigerDesc')}</p>
+                <a href="https://map.tiger-research.com/" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold text-sm hover:bg-primary-600 transition-all hover:-translate-y-0.5">
+                  {t('partnersPage.tigerBtnText')}
+                </a>
+              </div>
+              <div className="order-1 md:order-2">
+                <div className="relative w-full aspect-[5/3] rounded-2xl shadow-lg overflow-hidden bg-gradient-to-br from-[#1a0e05] via-[#2b1608] to-[#1a0e05]">
+                  <div className="absolute inset-0 opacity-[0.10]" style={{background: 'radial-gradient(ellipse at 50% 50%, #fbbf24 0%, transparent 60%)'}} />
+                  <div className="absolute inset-0 opacity-[0.06]" style={{background: 'radial-gradient(circle at 15% 20%, #f97316 0%, transparent 40%)'}} />
+                  <div className="absolute inset-0 opacity-[0.06]" style={{background: 'radial-gradient(circle at 85% 80%, #f97316 0%, transparent 40%)'}} />
+                  <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 500 300">
+                    <g stroke="#f59e0b" strokeWidth="0.5" fill="none" opacity="0.25">
+                      <line x1="80" y1="60" x2="180" y2="110" />
+                      <line x1="180" y1="110" x2="250" y2="70" />
+                      <line x1="250" y1="70" x2="340" y2="120" />
+                      <line x1="340" y1="120" x2="420" y2="80" />
+                      <line x1="80" y1="60" x2="120" y2="180" />
+                      <line x1="180" y1="110" x2="220" y2="220" />
+                      <line x1="250" y1="70" x2="280" y2="200" />
+                      <line x1="340" y1="120" x2="380" y2="240" />
+                      <line x1="420" y1="80" x2="440" y2="220" />
+                      <line x1="120" y1="180" x2="220" y2="220" />
+                      <line x1="220" y1="220" x2="280" y2="200" />
+                      <line x1="280" y1="200" x2="380" y2="240" />
+                      <line x1="380" y1="240" x2="440" y2="220" />
+                    </g>
+                    <g fill="#fbbf24" opacity="0.55">
+                      <circle cx="80" cy="60" r="2.5" />
+                      <circle cx="180" cy="110" r="3.5" />
+                      <circle cx="250" cy="70" r="2.5" />
+                      <circle cx="340" cy="120" r="3" />
+                      <circle cx="420" cy="80" r="2.5" />
+                      <circle cx="120" cy="180" r="2.5" />
+                      <circle cx="220" cy="220" r="3.5" />
+                      <circle cx="280" cy="200" r="2.5" />
+                      <circle cx="380" cy="240" r="3" />
+                      <circle cx="440" cy="220" r="2.5" />
+                    </g>
+                    <g fill="#fbbf24" opacity="0.15">
+                      <circle cx="180" cy="110" r="8" />
+                      <circle cx="220" cy="220" r="8" />
+                      <circle cx="340" cy="120" r="7" />
+                    </g>
+                  </svg>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-4">
+                    <img src="/partner-tiger-research.svg" alt="Tiger Research" className="h-8 md:h-10 brightness-0 invert" />
+                    <p className="text-[#fbbf24] text-[10px] md:text-xs tracking-[4px] font-medium">ASIA WEB3 RESEARCH</p>
+                    <div className="w-20 h-0.5 rounded bg-[#f59e0b]/30 mt-1" />
+                    <p className="text-[#fcd34d]/70 text-[9px] md:text-[10px] tracking-[2px]">KOREA MARKET MAP 2026</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* LootGo - Image Left, Text Right */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="order-1">

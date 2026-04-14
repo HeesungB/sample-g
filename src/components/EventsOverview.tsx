@@ -43,8 +43,11 @@ const mainEventKeywords = [
   'next finance summit', 'ethereum korea one', 'shefi seoul summit',
 ];
 
+const mainEventExactNames = ['buidl asia 2026'];
+
 const isMainEvent = (sideEventName: string) => {
-  const name = sideEventName.toLowerCase();
+  const name = sideEventName.toLowerCase().trim();
+  if (mainEventExactNames.includes(name)) return true;
   return mainEventKeywords.some((keyword) => name.includes(keyword));
 };
 
