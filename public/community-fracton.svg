@@ -1,0 +1,6 @@
+<svg version="1.1" viewBox="0 0 565 563" xmlns="http://www.w3.org/2000/svg">
+  <rect x="114" y="58" width="324" height="324" fill="none" stroke="black" stroke-width="20"/>
+  <line x1="300" y1="150" x2="177" y2="150" stroke="black" stroke-width="20"/>
+  <polyline points="177,224 300,224 372,310 439,224" fill="none" stroke="black" stroke-width="20"/>
+  <text x="282" y="480" font-family="Arial" font-size="60" text-anchor="middle" font-weight="bold">FRACTON</text>
+</svg>

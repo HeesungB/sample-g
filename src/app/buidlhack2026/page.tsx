@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,8 +8,11 @@ import { useLanguage } from '@/context/LanguageContext';
 
 const COMMUNITY_LINK = 'https://bit.ly/KBW_Community';
 
+type JudgePerson = { src: string; name: string; org: string; role: string; explanation?: string; objectPosition?: string };
+
 export default function BuidlHackPage() {
   const { t } = useLanguage();
+  const [modalPerson, setModalPerson] = useState<JudgePerson | null>(null);
 
   const stats = [
     { value: '2018', label: t('buidlhack.sinceLbl'), desc: t('buidlhack.sinceDesc') },
@@ -24,6 +27,60 @@ export default function BuidlHackPage() {
     { sponsor: 'Near AI', amount: '$5,000', logo: '/prize-near-ai.webp' },
     { sponsor: 'YGG & Verse8', amount: '$5,000', logo: '/prize-ygg-play.svg', logo2: '/prize-verse8.png' },
     { sponsor: 'General Track', amount: '$6,000', logo: '/logo-horizontal.png' },
+  ];
+
+  const judgeGroups: { group: string; people: JudgePerson[] }[] = [
+    {
+      group: 'General Track Judges',
+      people: [
+        { src: '/judge-hyung-kyu-choi.png', name: 'Hyung-Kyu Choi', org: 'DSRV', role: 'Co-founder / VP of Research' },
+        { src: '/judge-dmitry-serdyuk.png', name: 'Dmitry Serdyuk', org: 'SigIntZero', role: 'Chief Digital Officer' },
+        { src: '/judge-logan-kang.png', name: 'Logan Kang', org: 'Base Korea', role: 'Devrel Ambassador' },
+        { src: '/judge-advait-jayant.png', name: 'Advait Jayant', org: 'OpenGradient', role: 'Chief Strategy Officer' },
+        { src: '/judge-mashal-waqar.png', name: 'Mashal Waqar', org: 'Octant', role: 'CMO' },
+        { src: '/judge-seri-choi.png', name: 'Seri Choi', org: 'EigenCloud', role: 'Senior Software Engineer' },
+        { src: '/judge-lena-kang.png', name: 'Lena Kang', org: 'Core Contributor', role: 'Virtuals Protocol', objectPosition: 'top' },
+      ],
+    },
+    {
+      group: 'YGG & Verse 8 Judges',
+      people: [
+        { src: '/judge-abby-dizon.png', name: 'Gabby Dizon', org: 'YGG', role: 'Co-founder' },
+        { src: '/judge-jc-kim.png', name: 'JC Kim', org: 'Verse 8', role: 'Founder/CEO of Planetarium Labs, Founding builder of various web3 L1 tech. (LINE Blockchain, Nine Chronicles)' },
+        { src: '/judge-hakyong-tae.png', name: 'Hakyong Tae', org: 'Verse 8', role: 'VP of Business Development' },
+        { src: '/judge-kevin-lee.png', name: 'Kevin Lee', org: 'Verse 8', role: 'CEO, Verse Eight' },
+      ],
+    },
+    {
+      group: 'Status Network Judge',
+      people: [
+        { src: '/judge-kelly.png', name: 'Kelly', org: 'Status Network', role: 'DevRel' },
+      ],
+    },
+    {
+      group: 'NEAR AI Judges',
+      people: [
+        { src: '/judge-elliot-braem.png', name: 'Elliot Braem', org: 'NEAR Foundation', role: 'DevRel' },
+        { src: '/judge-cameron-dennis.png', name: 'Cameron Dennis', org: 'NEAR Foundation', role: 'Director of AI' },
+      ],
+    },
+    {
+      group: 'BNB Judges',
+      people: [
+        { src: '/judge-hyung-kyu-choi-bnb.png', name: 'Hyung-Kyu Choi', org: 'BNB', role: 'BD' },
+        { src: '/judge-gwen.png', name: 'Gwen', org: 'BNB', role: 'DevRel · Online Judge Only' },
+      ],
+    },
+    {
+      group: 'AMA Speakers',
+      people: [
+        { src: '/ama-elliot-braem.png', name: 'Elliot Braem', org: 'Near AI', role: 'Builder Ops' },
+        { src: '/ama-kelly.png', name: 'Kelly', org: 'Status Network', role: 'DevRel' },
+        { src: '/ama-yena.png', name: 'Yena', org: 'BNB Chain', role: 'Marketing Manager' },
+        { src: '/ama-gabby-dizon.png', name: 'Gabby Dizon', org: 'YGG', role: 'Co-founder' },
+        { src: '/ama-wise.png', name: 'Wise', org: 'Verse8', role: 'Builder Ops' },
+      ],
+    },
   ];
 
   const schedule = [
@@ -210,8 +267,67 @@ export default function BuidlHackPage() {
         </div>
       </section>
 
-      {/* Community Partners */}
+      {/* Judges, Speakers & Mentors */}
       <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">{t('buidlhack.judgesTitle1')} {t('buidlhack.judgesTitle1') && ' '}<span className="text-primary italic">{t('buidlhack.judgesHighlight')}</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-medium">{t('buidlhack.judgesDesc')}</p>
+          </div>
+          <div className="space-y-14 md:space-y-20 max-w-5xl mx-auto">
+            {judgeGroups.map((group, gi) => (
+              <div key={gi}>
+                <div className="flex items-center justify-center gap-4 mb-8 md:mb-10">
+                  <span className="h-px flex-1 max-w-[80px] bg-gray-200" />
+                  <h3 className="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-[0.2em]">{group.group}</h3>
+                  <span className="h-px flex-1 max-w-[80px] bg-gray-200" />
+                </div>
+                <div className={`grid gap-4 md:gap-6 mx-auto ${
+                  group.people.length === 1 ? 'grid-cols-1 max-w-[260px]' :
+                  group.people.length === 2 ? 'grid-cols-2 max-w-[544px]' :
+                  group.people.length === 3 ? 'grid-cols-2 lg:grid-cols-3 max-w-[820px]' :
+                  group.people.length === 5 ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-5' :
+                  'grid-cols-2 lg:grid-cols-4'
+                }`}>
+                  {group.people.map((person, i) => {
+                    const clickable = !!person.explanation;
+                    return (
+                      <div
+                        key={i}
+                        onClick={clickable ? () => setModalPerson(person) : undefined}
+                        className={`group bg-white rounded-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-stretch overflow-hidden w-full${clickable ? ' cursor-pointer' : ''}`}
+                      >
+                        <div className="relative w-full aspect-square bg-gray-100 overflow-hidden">
+                          <img
+                            src={person.src}
+                            alt={person.name}
+                            style={person.objectPosition ? { objectPosition: person.objectPosition } : undefined}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          {clickable && (
+                            <div className="absolute inset-0 bg-secondary/85 backdrop-blur-sm flex flex-col items-center justify-center p-4 md:p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <p className="text-white text-xs md:text-sm font-semibold mb-2">View full bio</p>
+                              <div className="w-8 h-0.5 bg-primary" />
+                            </div>
+                          )}
+                        </div>
+                        <div className="text-center px-4 py-5 md:px-5 md:py-6">
+                          <h4 className="text-base md:text-lg font-bold text-gray-900 mb-1">{person.name}</h4>
+                          <p className="text-sm font-semibold text-primary mb-0.5">{person.org}</p>
+                          <p className="text-xs md:text-sm text-gray-500 line-clamp-2">{person.role}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community Partners */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">{t('buidlhack.communityTitle1')} {t('buidlhack.communityTitle1') && ' '}<span className="text-primary italic">{t('buidlhack.communityHighlight')}</span></h2>
@@ -306,6 +422,41 @@ export default function BuidlHackPage() {
       </section>
 
       <Footer />
+
+      {modalPerson && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/70 backdrop-blur-sm"
+          onClick={() => setModalPerson(null)}
+        >
+          <div
+            className="relative bg-white rounded-3xl w-full max-w-3xl h-[85vh] md:h-[520px] overflow-hidden shadow-2xl flex flex-col md:flex-row"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={() => setModalPerson(null)}
+              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 hover:bg-white border border-gray-200 shadow flex items-center justify-center text-gray-600 hover:text-gray-900 transition-colors z-10"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
+            </button>
+            <div className="md:w-2/5 shrink-0 aspect-square md:aspect-auto bg-gray-100">
+              <img src={modalPerson.src} alt={modalPerson.name} className="w-full h-full object-cover" />
+            </div>
+            <div className="md:w-3/5 p-6 md:p-8 overflow-y-auto">
+              <p className="text-sm font-semibold text-primary mb-1">{modalPerson.org}</p>
+              <h4 className="text-2xl md:text-3xl font-black text-gray-900 mb-1 tracking-tight">{modalPerson.name}</h4>
+              <p className="text-sm md:text-base text-gray-500 mb-6">{modalPerson.role}</p>
+              <div className="h-px bg-gray-200 mb-5" />
+              <div className="space-y-4">
+                {modalPerson.explanation?.split('\n\n').map((para, i) => (
+                  <p key={i} className="text-sm md:text-base text-gray-700 leading-relaxed">{para}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

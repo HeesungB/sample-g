@@ -372,6 +372,9 @@ export const en = {
     sponsorsTitle1: 'Our', // 제목 앞부분
     sponsorsHighlight: 'Sponsors', // 제목 강조
     sponsorsDesc: 'The sponsors fueling BuidlHack 2026.', // 설명
+    judgesTitle1: 'Judges, Speakers &', // Judges 섹션 제목 앞부분
+    judgesHighlight: 'Mentors', // Judges 섹션 제목 강조
+    judgesDesc: 'Industry leaders guiding BuidlHack 2026.', // Judges 섹션 설명
     communityTitle1: 'Community', // 커뮤니티 파트너 제목 앞부분
     communityHighlight: 'Partners', // 커뮤니티 파트너 제목 강조
     communityDesc: 'The communities supporting BuidlHack 2026.', // 커뮤니티 파트너 설명

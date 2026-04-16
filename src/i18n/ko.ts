@@ -373,6 +373,9 @@ export const ko = {
     sponsorsTitle1: '', // 제목 앞부분 (한국어 미사용)
     sponsorsHighlight: '스폰서', // 제목 강조
     sponsorsDesc: 'BuidlHack 2026을 후원하는 스폰서들.', // 설명
+    judgesTitle1: '', // Judges 섹션 제목 앞부분 (한국어 미사용)
+    judgesHighlight: '심사위원, 연사 & 멘토', // Judges 섹션 제목 강조
+    judgesDesc: 'BuidlHack 2026을 이끄는 업계 리더들.', // Judges 섹션 설명
     communityTitle1: '', // 커뮤니티 파트너 제목 앞부분 (한국어 미사용)
     communityHighlight: '커뮤니티 파트너', // 커뮤니티 파트너 제목 강조
     communityDesc: 'BuidlHack 2026을 지원하는 커뮤니티들.', // 커뮤니티 파트너 설명

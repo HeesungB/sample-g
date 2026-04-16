@@ -78,6 +78,13 @@ const Partners = ({ animated = false }: { animated?: boolean }) => {
         { src: '/community-sol3hacker.png', h: 'h-7 md:h-10', filter: 'grayscale' },
         { src: '/community-bluenode.png', h: 'h-5 md:h-7', invert: true },
         { src: '/community-skkrypto.svg', h: 'h-10 md:h-14', filter: 'grayscale' },
+        { src: '/community-web3-ethiopia.svg', h: 'h-6 md:h-8', filter: 'grayscale' },
+        { src: '/community-japan-web3.svg', h: 'h-7 md:h-10', invert: true },
+        { src: '/community-apac-dao.png', h: 'h-14 md:h-20', filter: 'grayscale' },
+        { src: '/community-openbuild.png', h: 'h-5 md:h-7', invert: true },
+        { src: '/community-symmetry.png', h: 'h-4 md:h-6', invert: true },
+        { src: '/community-fluxor.png', h: 'h-6 md:h-8', invert: true },
+        { src: '/community-fracton.svg', h: 'h-8 md:h-12' },
       ],
     },
   ];
