@@ -41,7 +41,7 @@ const Navbar = () => {
   const navItems = [
     { name: t('nav.home'), href: '/' },
     { name: t('nav.about'), href: '/about' },
-    { name: t('nav.events'), href: '/events' },
+    // { name: t('nav.events'), href: '/events' },
     { name: t('nav.buidlhack'), href: '/buidlhack2026' },
     { name: t('nav.partners'), href: '/partners' },
     { name: t('nav.contact'), href: '/contact' },

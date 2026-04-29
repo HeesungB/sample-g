@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Description from "@/components/Description";
 import TrackRecord from "@/components/TrackRecord";
 import Alliance from "@/components/Alliance";
-import EventsOverview from "@/components/EventsOverview";
+// import EventsOverview from "@/components/EventsOverview";
 import Partners from "@/components/Partners";
 import JoinUs from "@/components/JoinUs";
 import Footer from "@/components/Footer";
@@ -16,7 +16,7 @@ export default function Home() {
       <Description />
       <TrackRecord />
       <Alliance />
-      <EventsOverview />
+      {/* <EventsOverview /> */}
       <Partners animated />
       <JoinUs />
       <Footer />

@@ -7,7 +7,7 @@ const JoinUs = () => {
   const { t } = useLanguage();
 
   const options = [
-    { title: t('join.registerTitle'), sub: t('join.registerSub'), href: 'https://se.ro/events/new?&parentEventSlug=korea-buidl-week-2026', external: true },
+    // { title: t('join.registerTitle'), sub: t('join.registerSub'), href: 'https://se.ro/events/new?&parentEventSlug=korea-buidl-week-2026', external: true },
     { title: t('join.sponsorTitle'), sub: t('join.sponsorSub'), href: '/contact#message' },
     { title: t('join.partnerTitle'), sub: t('join.partnerSub'), href: '/contact#message' },
     { title: t('join.communityTitle'), sub: t('join.communitySub'), href: 'https://bit.ly/KBW_Community', external: true },
@@ -28,7 +28,7 @@ const JoinUs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {options.map((option, index) => (
             <a
               key={index}

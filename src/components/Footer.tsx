@@ -33,7 +33,7 @@ const Footer = () => {
             <ul className="space-y-4 text-gray-400">
               <li><Link href="/" className="hover:text-white transition-colors">{t('nav.home')}</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">{t('nav.about')}</Link></li>
-              <li><Link href="/events" className="hover:text-white transition-colors">{t('nav.events')}</Link></li>
+              {/* <li><Link href="/events" className="hover:text-white transition-colors">{t('nav.events')}</Link></li> */}
               <li><Link href="/buidlhack2026" className="hover:text-white transition-colors">{t('nav.buidlhack')}</Link></li>
             </ul>
           </div>

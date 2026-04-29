@@ -64,7 +64,7 @@ const Hero = () => {
         <div
           className="flex flex-col sm:flex-row gap-4 justify-center relative z-30 pointer-events-auto"
         >
-          <a
+          {/* <a
             href="/events"
             onClick={(e) => {
               console.log('See Events clicked');
@@ -72,7 +72,7 @@ const Hero = () => {
             className="inline-block bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-primary-600 transition-all transform hover:scale-105 text-center cursor-pointer relative z-30"
           >
             {t('hero.seeEvents')}
-          </a>
+          </a> */}
           <a
             href="https://bit.ly/KBW_Community"
             target="_blank"
